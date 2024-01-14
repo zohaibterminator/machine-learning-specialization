@@ -1,0 +1,11 @@
+w = w - α * d/dw(J(w, b))
+
+α = is the learning rate between 0 and 1. Basically the size of the step
+d/dw = partial derivative wrt to w
+
+b = b - α * d/db(J(w, b))
+d/db = partial derivative wrt to b
+
+One important thing, since J(w, b) is literally a function (in terms of programming) that takes parameters w and b, when we update w and b back to back, we need to preserve the value of old w before it is assigned a new value. To solve it, just assign the new value of w to a temp variable.
+
+When we use squared error cost function, we will never have a local minimum

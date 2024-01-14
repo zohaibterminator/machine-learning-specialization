@@ -1,0 +1,12 @@
+Takes X input and gives a corresponding Y output. Learns from being given "right answers".
+Examples can be email filtering (giving an email as input and output whether the email
+is spam or not)
+
+Types of Supervised ML models are:
+
+1. Regression Algorithms is used for prediction. Give an input X, and the algorithm will
+predict or "guess" the output Y. Used to predict output from an infinite possibilities.
+For example, house price prediction.
+
+2. Classification Algorithms classifies output Y into a category with respect to the given
+input X. Used to predict small number of possible outputs. For example, email filtering.

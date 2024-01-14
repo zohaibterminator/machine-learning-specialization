@@ -1,0 +1,9 @@
+If α is too small:
+  let α be 0.000001
+  Because the learning rate is too small (steps are too small), GD may be slow to calculate the minimum cost.
+
+If α is too large:
+  let α be 0.9
+  Because the learning rate is too large (step is too large), GD may overshot the minimum cost and end up in a similar or worse position. Then it will try to calculate mimimum cost again and may overshoot again. Because of this GD may never find the mimimum. In other words, GD will not converge or maybe even diverge.
+
+As we near a local mimimum, steps become smaller and smaller because derivative becomes smaller and smaller. That means we can reach a mimimum without decreasing learning rate.
