@@ -1,8 +1,0 @@
-Training Set: Data used to train the model
-x = "Input" variable or feature
-y = "Target" variable or feature
-m = number of training examples or, more simply, number of rows in a dataset
-
-(x, y) is used to represent a single training example or rows of the dataset
-
-(x^(i), y^(i)) is the i-th training example in the dataset
