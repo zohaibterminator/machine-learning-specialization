@@ -1,0 +1,7 @@
+Shortens code, make it run efficiently and also allow it to run in parallel.
+
+for example, as stated previously, since MLR is the equal to the dot product of w and x row vectors, we can just use the "dot" function of the NumPy library to calculate the dot product of x and y instead of using loops or variables and calculate MLR in just one line:
+
+f = np.dot(w, x) + b
+
+Code is shorter because now you have to write only one line of code and is faster because in the backend, NumPy executes the code parallely whether on a CPU or a GPU (if you have one).

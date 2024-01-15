@@ -1,0 +1,11 @@
+Parameters: w_1,...,w_n and b
+
+Model: f_wb = w_1.x_1 + ... + w_n.x_n + b
+
+Cost Function: J(w_1,...,w_n, b)
+
+Gradient Descent: repeat {
+                    w_j = w_j - α * d/dw(J(w_1,...,w_n, b))
+                    w_j = w_j - α * d/db(J(w_1,...,w_n, b))
+                  }
+

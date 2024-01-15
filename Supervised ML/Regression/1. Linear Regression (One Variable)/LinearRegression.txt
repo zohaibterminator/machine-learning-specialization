@@ -1,0 +1,10 @@
+When you feed a model a training dataset, it outputs a function or a hypothesis. We denote it with the letter f
+
+The function now gets a completely new input x and outputs an estimate or prediction ŷ (pronounced y-hat). ŷ is an estimate of the true value
+of x, y. y is also called "target" or output variable.
+
+In Linear Regression, f can be represented as:
+
+f(x) = wx + b
+
+This is called Linear Regression with one variable or Univariate Linear Regression
