@@ -1,0 +1,19 @@
+Feature scaling is a technique that makes GD run much faster.
+
+Lets first look at the relationship between features  and their associated parameters with an example from the house prediction data set.
+
+Suppose there are the features "size of the house" (x_1) and "number of bedrooms" (x_2) and their associate parameters w_1 and w_2 respectfully. The range of values that x_1 can take is 300 to 2000 square feet and the range of values that x_2 can take is 0 to 5 bedrooms. Lets take the example of a house that is 2000 sq and has 5 bedrooms. The true value of the house is 500k dollars. If the value of b is 50, what would be the values of w_1 and w_2 so that the estimated price becomes 500k? Lets take some guesses.
+
+Guess 1: w_1 = 50, w_2 = 0.1
+
+If we take the above values, the price after the calculation will be 100 million dollars, that is obviously wrong. How about we switch the values of w_1 and w_2?
+
+Guess 2: w_1 = 0.1, w_2 = 50
+
+Now if you do the calculation, the answer will be 500k, which is exactly what the true value of the house is. So hopefully you might notice that when a possible range of values of a feature is large, like the size and square feet which goes all the way up to 2000. It's more likely that a good model will learn to choose a relatively small parameter value, like 0.1. Likewise, when the possible values of the feature are small, like the number of bedrooms, then a reasonable value for its parameters will be relatively large like 50. So how does this relate to grading descent?
+
+If you make a scatter plot with x_1 as x-axis and the number of bedrooms as the y-axis, you will see that the horizontal axis is on a much larger range of values than the y-axis. Now, if we make a contour plot of the cost function with w_1 on the x-axis and w_2 on y-axis, you will see the opposite story. You will see the contours of the contour plot are shoter on the x-axis and larger on the y-axis. This is because a small change to w_1 can have a large impact on the cost J, because w_1 tends to be multiplied by a higher number, i.e. the size of the house, and it takes a large change in w_2 to change the prediction. Thus, small change to w_2 doesn't effect the cost that much.
+
+So where does this leave us? This is what might end up happening if you were to run gradient descent, if you were to use your training data as is. Because the contours are so tall and skinny gradient descent may end up bouncing back and forth for a long time before it can finally find its way to the global minimum. In situations like this, a useful thing to do is to scale the features. This means performing some transformation of your training data so that x_1 say might now range from 0 to 1 and x_2 might also range from 0 to 1.
+
+So to recap, when you have different features that take on very different ranges of values, it can cause gradient descent to run slowly but re-scaling the different features so they all take on comparable range of values can cause the gradient descent to  speed, up significantly.
