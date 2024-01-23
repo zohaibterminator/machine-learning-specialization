@@ -1,0 +1,3 @@
+Take the example of house price prediction.
+
+Consider a graph of a dataset with size on x-axis and price on y-axis. The points on the graph increase at first but flatten out towards the end, meaning, at a certain point, as the size of house increases, the price of the house doesnt increase at the same rate. But after applying a linear regression model, the model just makes a straight, linear line which doesnt fit the data well. This is called underfitting and it has high bias. This means that the there is a pattern in the dataset that the algorithm just didnt seem to capture due to some preconceved bias. Now lets say we use a polynomial linear regression model, i

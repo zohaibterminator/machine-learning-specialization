@@ -1,0 +1,25 @@
+Squared error cost function is not an ideal cost function for Logistic Regression, because when you plot the graph of the cost function, you will see it will be sort of a "wiggly" version of the original graph of MSE function, making it a a non-convex function because cost will be fluctuating too much due to which when you will apply GD, there can be a local minima problem.
+
+So, the cost function we will use is:
+
+  j_wb = 1/m Summation(1/2 L(f_wb, y_i))
+
+  Where L is called Loss. The loss function will be different with respect to the true value y_i like this:
+
+  if y_i = 1,
+  then j_wb = -log(f_wb(x_i))
+
+  if y_i = 0,
+  then j_wb = -log(1 - f_wb(x_i))
+
+The different function used based on whether y is 0 or 1 makes the overall cost function convex.
+
+The simplified loss function can become:
+
+  L(f_wb, y_i) = -y_i * log(1 - f_wb(x_i)) - (1 - y_i) * log(1 - f_wb(x_i))
+
+  How is it the same as the above equations, lets take an example. If y is 0, then the left term is eliminated, thus leaving us with the equation -log(1 - f_wb(x_i)), which is exactly the term you saw above for y = 0.
+
+Substituting the equation above in the cost function equation, the simplified cost function will become:
+
+j_wb = -1/m Summation[y_i * log(f_wb(x_i)) + (1 - y_i) * log(f_wb(x_i))]
