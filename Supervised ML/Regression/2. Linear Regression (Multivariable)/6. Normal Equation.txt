@@ -1,9 +1,0 @@
-Normal equation method is an alternative way for finding w and b (reducing cost).
-
-Advantages:
-1. It is only used for LR
-2. Solve for w and b without iterations
-
-Disadvantages:
-1. Doesnt generalize to other learning algorithm.
-2. Slow when number of features is large (> 10,000)

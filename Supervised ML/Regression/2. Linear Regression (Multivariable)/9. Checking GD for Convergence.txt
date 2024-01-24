@@ -1,6 +1,0 @@
-How to check if GD is converging?
-Make a graph with number of iterations on the x-axis and cost on y-axis. The graph or curve formed is called learning curve. If, GD is working properly than cost should be decreasing after every iteration. If the cost increases at any point, it means learning rate is choosen poorly, and it usually means that the learning rate is too large, or there could be a bug in the code. The graph also shows you where the cost starts to becomes constant. The number of iterations required for GD to converge can differ in certain applications. Another way to decide whether the model is done training is the Automatic Convergence test. You declare a very small value, lets say, 10e-3 or 0.001 denoted by "epsilon" symbol.
-
-If J(w,b) decreases by <= epsilon in one iteration, we declare convergence (found parameters w and b close to the global minimum).
-
-Its hard to choose a value as your stopping criteria

@@ -1,3 +1,0 @@
-If learning rate is too small, large number of iterations are required to reach the minimum cost.
-
-If the learning rate is too large, each update to w may become so large that it 'overshots' the minimum value of the w. This also means that the GD algorithm may, never find the minimum because it will overestimate the value of w after each iteration.

@@ -1,7 +1,0 @@
-The GD equation becomes:
-
-dJ_dw = 1/m Summation(f_wb - y_i) * x_i
-dJ_db = 1/m Summation(f_wb - y_i)
-
-w_j = w_j - alpha * dJ_dw
-b = b - alpha * dJ_db
