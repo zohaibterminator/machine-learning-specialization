@@ -1,0 +1,10 @@
+The actual techniques will be discussed later in the specialization. For now, you can do the following:
+
+1. Collect more data:
+If you have an overfitted model, one thing you can do is get more training data. Then with the larger dataset, the curve will be less wiggly.
+
+2. Feature Selection:
+Second option is for you to see if can use less features. If you have a lot of features that you are using to predict the price of the house and don't have sufficient data, then the model will overfit. You would have to use less features and only use those that you think are relevant. This is sometimes also called feature selection. Now, one disadvantage of feature selection is that by using only a subset of the features, the algorithm is throwing away some of the information that you have about the houses.
+
+3. Regularization:
+Regularization, instead of eliminating a feature, encourages the model to shrink the parameter values without setting the value of parameter to zero. Usually, w is the only parameter being regularized and b is not regularize in practice.

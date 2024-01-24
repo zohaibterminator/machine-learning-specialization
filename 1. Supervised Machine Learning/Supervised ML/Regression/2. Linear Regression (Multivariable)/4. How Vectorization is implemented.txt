@@ -1,0 +1,18 @@
+Let's first look at an unvectorized code and see how it runs.
+
+for j in range(0, 16)
+  f += w[i]*x[i] + b
+
+t0: f += w[0]*x[0] + b
+t1: f += w[1]*x[1] + b
+t2: f += w[2]*x[2] + b
+.
+.
+.
+t15: f += w[15]*x[15] + b
+
+Now lets take a look at the vectorized code.
+
+f = np.dot(w, x) + b
+
+The computer gets all the values of w and x and multiplies each pair of w_i and x_i in a single step in parallel. Then uses a specialized hardware to add them. This helps in training large models and helps in scalibility.

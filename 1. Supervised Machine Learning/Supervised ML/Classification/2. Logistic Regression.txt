@@ -1,0 +1,14 @@
+Instead of a straight line, the Logistic Regression fits a S-shaped curve. The algorithm a mathematical function called Sigmoid function or Logistic function, that also generates an S-shaped curved on the graph. If we denote the x-axis as z the function g(z) will become:
+
+  g(z) = 1/(1 + e^-z)
+
+Where e is the mathematical constant. Let's say z is a large positive number 100, if we do the calculations the value of g(z) will be approx. 1/1 meaning the denominator will be close to 1. And if we, conversely, take a large negative number -100 and input it into the function as z, the result will be the opposite, meaning the output will be closer to 0. That is why the graph becomes like the letter S, because majority of the values will either be closer to zero or closer to 1. When z will be zero, the output of the sigmoid will be 0.5, that is why the graph passes through the vertical axis at 0.5.
+
+So, now let's build the function. We are going to take the same function as the linear regression i.e. w.x + b, but we will label the output as z. We are going to take that z and put it into the sigmoid function. So, the model becomes:
+
+  if z = w.x + b
+  then, f_wb = g(z)
+
+  where the function g is the sigmoid function.
+
+Now, how do we interpret the output of the model? Following the tumor example, if the output of the model is 0.7, we will say "there is a 70 percent chance of the tumor being malignant" meaning there is a 70 percent chance of the true label y being equal to 1.
