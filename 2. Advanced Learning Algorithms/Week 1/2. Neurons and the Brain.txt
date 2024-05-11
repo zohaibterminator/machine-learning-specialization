@@ -1,0 +1,14 @@
+Original motivation behind the invention of the NNs was to make a software that could mimic the humain brain in terms of how it works and learns. Today, NN or ANN, have become very different to how the humain brain works.
+
+Work on NN started in the 1950s and then it fell out of favor before gaining traction again in 1980s and early 1990s especially in applications like handwritten digit recognition to read postal codes and reading dollar figures in handwritten checks. It fell out of favor again in the late 1990s before gaining hype again from 2005, maybe also due to being rebranded as deep learning.
+
+Some of the areas that ANN revolutionized were speech recognition, computer vision and text (NLP).
+
+Here's how the human brain works (to give an idea of how NN works):
+
+All of human thought is from neurons like this in your brain and mine, sending electrical impulses and sometimes forming new connections of other neurons. Given a neuron like this one, it has a number of inputs where it receives electrical impulses from other neurons, and then this neuron that I've circled carries out some computations and will then send this outputs to other neurons by this electrical impulses, and this upper neuron's output in turn becomes the input to this neuron down below, which again aggregates inputs from multiple other neurons to then maybe send its own output, to yet other neurons, and this is the stuff of which human thought is made.
+
+NN use a simplified mathematical model of a neuron. What a neuron does is it takes some inputs, one or more inputs, which are just numbers. It does some computation and it outputs some other number, which then could be an input to a second neuron. When you're building an artificial neural network or deep learning algorithm, rather than building one neuron at a time, you often want to simulate many such neurons at the same time.
+
+Why are NN relevant now?
+Lots of data is now digitized. With this large amount of data available, we had the oppurtunity to put it to use in ML application. Traditional ML techniques like Lin Reg and Log Reg were found to not scale as much as they should given the vast amount of data going in them. Researchers found that, a small neural network would not only perform better than the classic ML techniques, but scale well when you added more layers and neurons in the network. Faster processes and GPUs was also a major factor in the rise of NNs.

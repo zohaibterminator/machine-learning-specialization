@@ -1,0 +1,4 @@
+Week 1: Neural Networks and how to perform inference (prediction)
+Week 2: Train your Neural Networks
+Week 3: Practical advice for building machine learning systems and applications
+Week 4: Decision Trees
