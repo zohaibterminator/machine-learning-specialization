@@ -1,0 +1,33 @@
+Lets look at the workings of the NN layers of the Demand Prediction example.
+
+Note: All vectors mentioned below are vertical in shape even though they look horizontal.
+
+We have three Neurons in the hidden layer, each equipped with the logistic regression function for activations. The layer takes in the input vector of values [197, 184, 136, 214].
+
+For the first neuron, the parameters will be denoted as w_1 and b_1, the weight and the bias. The equation of the logistic regression function can be written as:
+
+a1 = g(w_1 . x + b_1)
+
+Where w_1 and b_1 are the parameters, x is the feature vector (values of the features) and g() is the sigmoid function. The result of that function is the activation a1, whose value is calculated to be, suppose, 0.3
+
+For the second neuron, the notation will be similar as the parameters will be denoted as w_2 and b_2, the weight and the bias. The equation  can be written as:
+
+a2 = g(w_2 . x + b_2)
+
+Where w_2 and b_2 are the parameters, x is the feature vector (values of the features) and g() is the sigmoid function. The result of that function is the activation a2, whose value is calculated to be, suppose, 0.7
+
+Similarly for the third neuron, the equation will be:
+
+a3 = g(w_3 . x + b_3)
+
+The activation a3 value is calculated to be 0.2
+
+Therefore, the vector of the activations will be [0.3, 0.7, 0.2]. This is then will be passed onto the output layer.
+
+The layers are also given different labels or numbers. The first hidden layer, in our case the only hidden layer, is denoted as layer 1, then the output layer can be labelled as layer 2. The input layer is also sometimes called layer 0. Today a NN can have dozens and hundreds of layers.
+
+Due to this, the parameters of different layers can be distinguished by adding a superscript in square brackets. a^[1] will be denoted for the output of te hidden layer, and similarly every parameter and activations of the neruons in layer 1 will have [1] as the superscript.
+
+Now lets look at the computation of the layer 2, i.e. the outpu layer. The output vector 'a'^1 will become the input, or the activation for the output layer. The vector 'x' will be replaced by the vector a^[1], i.e. the output of the previous layer. Since there is only one neruon in layer 2, the output will be a scaler value, which is the probability of the t-shirt being a top-seller, a^[2]. Similarly to layer 1, the parameters and activations of this layer will be superscripted by 2, to denote that they belong to layer 2.
+
+After the NN is done computing, you can choose to implement a binary classification. If the threshold is set to 0.5, then if the a^[2] is greater than and equal to 0.5, the t-shirt is classified as Yes, as in, Yes it will be a top-seller, and classified as No otherwise.
