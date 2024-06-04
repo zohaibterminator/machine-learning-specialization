@@ -1,0 +1,11 @@
+Recall the demand prediction example from last week where given price, shipping cost, marketing, material, you would try to predict if something is highly affordable. If there's good awareness and high perceived quality and based on that try to predict it was a top seller. But this assumes that awareness is maybe binary is either people are aware or they are not. But it seems like the degree to which possible buyers are aware of the t shirt you're selling may not be binary, they can be a little bit aware, somewhat aware, extremely aware or it could have gone completely viral. So rather than modeling awareness as a binary number 0, 1, that you try to estimate the probability of awareness or rather than modeling awareness is just a number between 0 and 1. Maybe awareness should be any non negative number because there can be any non negative value of awareness going from 0 up to very very large numbers.
+
+Here are some other activation functions:
+
+1. ReLU (Rectified Linear Unit):
+    g(z) = max(0, z)
+
+2. Linear:
+    g(z) = z (no activation basically)
+
+3. Softmax

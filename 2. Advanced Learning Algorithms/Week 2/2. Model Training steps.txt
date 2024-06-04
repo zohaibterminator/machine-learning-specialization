@@ -1,0 +1,26 @@
+1. Specify how to compute output given input x and parameters w and b (define the model):
+
+model = Sequential([
+    Dense(units=25, activation="sigmoid"),
+    Dense(units=15, activation="sigmoid"),
+    Dense(units=1, activation="sigmoid")
+])
+
+This code snippet specifies the entire architecture of the neural network. It tells you that there are 25 hidden units in the first hidden layer, then the 15 in the next one, and then one output unit and that we're using the sigmoid activation value. Based on this code snippet, we know also what are the parameters w_1, b_1 though the first layer parameters of the second layer and parameters of the third layer. This code snippet specifies the entire architecture of the neural network and therefore tells TensorFlow everything it needs in In order to compute the output a^3 or f(x) as a function of the input x and the parameters.
+
+2. Specify loss and cost:
+
+model.compile(
+    loss=BinaryCrossentropy() # loss function
+)
+
+Since the handwritten digits classification problem is a binary classification problem, it will use the same loss function as the logistic regression, which is:
+
+L(f(x), y) = -ylog(f(x)) 0 (1-y)log(1-f(x))
+
+This function is known as BinaryCrossentropy function. Having specified the loss with respect to a single training example, TensorFlow knows that it costs you want to minimize is then the average, taking the average over all m training examples of the loss on all of the training examples. Optimizing this cost function will result in fitting the neural network to your binary classification data.  In case you want to solve a regression problem rather than a classification problem. You can also tell TensorFlow to compile your model using a different loss function. For example, if you have a regression problem and if you want to minimize the squared error loss. The loss with respect to if your learning algorithm outputs f(x) with a target or ground truth label of y, that's 1/2 of the squared error. Then you can use this loss function in TensorFlow, which is to use the maybe more intuitively named mean squared error loss function. Then TensorFlow will try to minimize the mean squared error.
+
+3. Train on data to minimize J(w, b), which is the cost function
+By default, TensorFlow uses gradient descent to minimize the cost through backpropagation algorithm. There are other optimizers that reduces the cost quicker than GD.
+
+model.fit(X, y, epochs=100)
