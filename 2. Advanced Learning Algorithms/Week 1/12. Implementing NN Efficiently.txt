@@ -1,0 +1,10 @@
+One of the reasons that deep learning researchers have been able to scale up neural networks, and thought really large neural networks over the last decade, is because neural networks can be vectorized.
+
+To implement vectorization, we will use matrix multiplication.
+
+We will convert the training data X into a 2D array, W will remain the same while b will be converted to a 2D array. Through this, the code of the "dense" function will be shorten to just 3 lines.
+
+def dense(A_in, W, B):
+    Z = np.matmul(A_in, W) + B
+    A_out = g(Z)
+    return A_out

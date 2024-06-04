@@ -1,0 +1,20 @@
+Instead of making two different layers and manually passing activations among them, define the layers and string them together into one NN using "Sequential" method.
+
+layer_1 = tf.keras.layers.Dense(units=3, activation="sigmoid")
+layer_2 = tf.keras.layers.Dense(units=1, activation="sigmoid")
+model = tf.keras.Sequential([layer_1, layer_2])
+
+We define our training data, made up of numpy arrays or whatever datastructures you use
+
+Then we call the compile function of the model (more on this later) with some parameters.
+
+And then we call the function "fit" to train the model on the training data.
+
+For inference, we will call predict and give the new data for prediction.
+
+Usually, the NN is defined as follows:
+
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(units=3, activation="sigmoid"),
+    tf.keras.layers.Dense(units=1, activation="sigmoid")
+])

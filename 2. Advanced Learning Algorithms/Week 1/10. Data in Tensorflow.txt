@@ -1,0 +1,9 @@
+Feature Vectors
+
+In tensorflow, the data is stored as 2D matrices, where as in course 1, we worked primarily on 1D arrays with NumPy.
+
+There is a difference in the data storage convention because TF was designed to store large datasets, and storing them as matrices, made the computations more efficient.
+
+That's why, when you see the dimensions of the activation a1 in the coffee roasting example, it is actually of (1, 3) shape, which means it is a 2D matrix with 1 rows and 3 columns. The activation returned by the NN layer is actually a Tensor, which is a TF datatype and basically is a matrix to store data.
+
+You can convert the Tensor into a NumPy array by using the numpy method.

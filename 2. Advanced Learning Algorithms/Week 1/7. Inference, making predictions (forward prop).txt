@@ -6,6 +6,6 @@ We are going to use a neural network with 2 hidden layers, where the first hidde
 
 First the activation 1 or a^[1] will be calculated, which will act as the input for layer 2, which will output a^[2] which is then acts as input to the output layer which calculates the probabilty of the digit being 1 or not. The output can be classified using a threshold (0.5).
 
-Since the computation takes place from left to right, this alghorithm is called forward propagation, because you are propagating activations in the forward direction. This alghorithm is used to make predictions. This is in contrast to another algorithm called backward propagation, which is used for learning.
+Since the computation takes place from left to right, this algorithm is called forward propagation, because you are propagating activations in the forward direction. This algorithm is used to make predictions. This is in contrast to another algorithm called backward propagation, which is used for learning.
 
 This typical NN architecture, where the initial hidden layer has the most neurons and the number of neurons decrease as you go further, is a typical architecture choice of a NN.
