@@ -1,0 +1,10 @@
+Depending on what the target label or the ground truth label y is, there will be one fairly natural choice for the activation function for the output layer.
+
+If you are working on binary classification problem, Sigmoid should be used. If you are working on regression problem like "How tomorrow's stock price value will change compared to today's stock price". The value can go up or down. So, linear activation is the right choice for the activation function for the output layer. Because the prediction can either be negative or positive, and linear activation can allow that. If the regression problem is "Predict the price of the house", then the value can never be zero. So the activation function of the output layer will be ReLU.
+
+What about the hidden layer? ReLU is the common choice for hidden layer. Originally, sigmoid was used but it fell out of favor for ReLU, for two reasons:
+
+1. ReLU is less expensive to compute.
+2. Using ReLU results in faster convergence of GD. Because ReLU is "flat" in only one place whereas sigmoid function is flat at two places. If you are using an activation function that is flat on a lot of places, than the GD becomes very slow (as it can result in uneven cost distribution).
+
+There are some other activation functions like LeakyReLU and tanh which are useful in some applications.

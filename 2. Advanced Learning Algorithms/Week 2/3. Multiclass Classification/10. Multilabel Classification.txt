@@ -1,0 +1,7 @@
+There is another type of classification problem called Multilabel classification, in which there are multiple labels associated to an image.
+
+Therefore, for an image, the output is a not-so-sparse vector where multiple values can be "on" or 1 for a corresponding class.
+
+One solution to this problem is that, for example, if you want your self-driving car to recognize pedestrians, cars and buses in front of them, you could build 3 seperate NN that recognizes a particular class of objects in an image, which is not bad solution.
+
+Alternatively, you can make a single NN that can predict whether there are buses, cars and pedestrians in an image. The output layer can have 3 neurons corresponding to the three classes with sigmoid as the activation function. In this way, each neuron can be 'turned on" independently of each other, depending on whether the NN thinks there is a car, bus or pedestrian in the image.

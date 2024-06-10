@@ -1,0 +1,5 @@
+We were using the Dense layer type, where each neuron in the layer gets all the input or activations from the previous layer.
+
+One type of layer is the Convolutional Layer. In this type of layer, each neuron only looks at a part of the previous layer's outputs. One advantage of this type of layer is that it requires less computation time. Another advantage can be is that it requires less training data and can be less prone to overfitting. If you have multiple convolutional layers in your network, than the network is called Convolutional Neural Network.
+
+Lets take an example of EKG/ECG signals or Electro-Cardiograms. The data is in the form of signals that correspond to a person's heartbeat.

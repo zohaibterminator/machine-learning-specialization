@@ -1,0 +1,17 @@
+Gradient Descent is an optimization algorithm that is widely used. But their are now even better optimization algorithms that minimize the cost function.
+
+Sometimes, in GD, as we move towards the minimum cost, we go in the same direction. But due to the learning rate, we take slow steps. Wouldnt it be better that an algorithm could be designed that senses that we are going in the same direction and automatically adjusts the learning rate accordingly?
+
+Well, there is an optimizer called 'Adam' (Adaptive Moment Estimation) that does this. The algorithm also decreases the learning rate if the GD is moving too fast.
+
+The Adam algorithm doesnt actually have a 1 universal learning rate, but actually seperate learning rates for each parameters. For example, we have 10 w and 1 b parameters, there will be 11 learning rates total that will be assigned to the parameters.
+
+The intuition is:
+1. If the parameter w_j or b is moving in the same direction, increase the learning rate alpha_j.
+2. If the parameter w_j or b is not moving in the same direction or keeps on oscillating, decrease the learning rate alpha_j.
+
+The code is the same and the only change is that we pass the adam optimizer in the argument of the model.compile function.
+
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3))
+
+An initial learning rate will be assigned to the optmizer, although, it is more robust to the exact choice of learning rate you pick than GD.

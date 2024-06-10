@@ -1,0 +1,29 @@
+Softmax regression algorithm is a generalization of the logistic regression algorithm, which is a binary classification algorithm, to the multiclass classification context.
+
+Lets take an example where there are 4 labels.
+
+z_1 = w_1 . x + b_1;        a_1 = (e^z_1) / (e^z_1 + e^z_2 + e^z_3 + e^z_4)
+
+z_2 = w_2 . x + b_2;        a_2 = (e^z_2) / (e^z_1 + e^z_2 + e^z_3 + e^z_4)
+
+z_3 = w_3 . x + b_3;        a_3 = (e^z_3) / (e^z_1 + e^z_2 + e^z_3 + e^z_4)
+
+z_4 = w_4 . x + b_4;        a_4 = (e^z_4) / (e^z_1 + e^z_2 + e^z_3 + e^z_4)
+
+Here is the general formula for softmax regression:
+
+a_j = e^(z_j)/ summation {k=1 to N} (e^z_k)
+
+Here is the loss function for softmax regression:
+
+
+loss(a1, ..., a_n) = {
+    -log(a_1); if y=1,
+    -log(a_2); if y=2,
+    .
+    .
+    .
+    -log(a_N); if y=N
+}
+
+If you plot the loss of an example a_j, the loss will be minimum if a_j = 1, and it increases as a_j gets closer to zero, forming a curve.

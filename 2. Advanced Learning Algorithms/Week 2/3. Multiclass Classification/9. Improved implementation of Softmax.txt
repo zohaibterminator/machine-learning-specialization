@@ -1,0 +1,28 @@
+There is a numerical round-off error depending on how you divide.
+
+2/10000 and (1 + (1/10000)) - (1 - (1/10000)) yield different results even though they are equivalent expressions.
+
+A simple implementation of Softmax using SparseCategoricalCrossentropy should work in theory, the it divides can lead to round-off error.
+
+In logistic regression, the original loss is calculated as follows:
+
+a = g(z) = 1/(1 + e^-z)
+
+loss = -y*log(a) - (1-y)*log(1 - a)
+
+This can lead to round-off errors, as in practice, the NN calculates the activation 'a' as an intermediate value, then puts it into the loss function that we specified (in this case, the function is BinaryCrossentropy).
+
+If we tell TF to directly calculate loss from the 1/(1 + e^-z) instead, the TF can rearrange the values so that the values are more correctly calculated. Here is the improved code:
+
+model.compile(loss=BinaryCrossentropy(from_logits=True))
+
+'logits' is referring to the 'e' function. Using this code, makes TF change the activation in the output layer to linear activation, and puts the softmax activation function directly in the loss function. Both the normal code and this new code works fine for logistic regression, but the round-off errors can get worse in softmax.
+
+In softmax, we can directly put in the equation for an activation in the loss function.
+
+The code for this is similar to logistic regression, just set the from_logits argument to True.
+
+The final output, now though is just z_1 - z_10, so we have to pass the, through the softmax activation layer through this code:
+
+logit = model(X) # fit
+f_x = tf.nn.softmax(logit) # predict

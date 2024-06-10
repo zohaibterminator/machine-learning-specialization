@@ -1,0 +1,9 @@
+Softmax regression model is put in the output layer, to enable a NN to classify multiclass labels.
+
+If we want a NN to classify multiclass labels, then we will change the number of neurons to number of labels that 'y' can have. This is layer is generally called "Softmax layer". For handwritten digit classification, we will put 10 neurons in the output layer.
+
+The softmax loss function in TensorFlow is called "SparseCategoricalCrossentropy"
+
+Sparse refers to that y can be one of 0-9 labels, which means only those digit's value will be 1 in the final output whose probability was predicted to be the highest by the NN. The rest of them will be zero.
+
+Categorical refers to that you are classifying y into multiple categories.
