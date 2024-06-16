@@ -1,0 +1,13 @@
+Having a systematic way to evaluate performance will also hope paint a clearer path for how to improve its performance.
+
+When you are predicting, lets say, housing prices, a single feature in the form of the size of the house, you could plot the model and could see that the curve is very wiggly so we know this is probably isnt a good model. But if you have more than one features, it is difficult to plot a multidimensional set of features. We need a more systematic way to test the model.
+
+One of the techniques used is dividing the dataset into training and test sets. Lets say you have a dataset, you divide the data in a way that 70 percent of the data is used as the training set, and the rest of the 30 percent is used as the test set. Training set will be used to train the parameters of the model, while the test set will evaluate the model.
+
+The training examples will be denoted by the same notation, (x^1, y^1) to (x^m_train, y^m_train) but we will introduce a new notation and add train in the subscript of m, to specify that these specific set of examples are training examples. Similarly, we will use (x_test^1, y_test^1) to (x_test^m_test, y_test^m_test) to denote the test data.
+
+The Train/Test procedure for LR is similar, you just train the model and fit the parameters by minimizing the cost function, than you calculate the error by predicting using the test set. The error equation of the test set doesnt include the regularization term. The final error that is calculated is called test error. You can also calculate the train error by predicting using the training set.
+
+For an overfitted model, the test error will be high and the training error will be low.
+
+For evaluating a classification model, usually, the cost function is not used to calculate the error, but instead, the error is calculated as the count of fraction of the test set and the fraction of the train set that the algorithm has misclassified.

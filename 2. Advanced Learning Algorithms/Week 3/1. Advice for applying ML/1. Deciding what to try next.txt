@@ -1,0 +1,12 @@
+Sometimes, you implement a ML algorithm lets say a regularized LR algo for performing regression on house prices, but it makes unacceptably large errors. What do try next?
+
+1. Get more training examples
+2. Try smaller sets of features
+3. Try getting additional features
+4. Try adding polynomial features
+5. Try decreasing lamda
+6. Try increasing lamda
+
+Some of these actions can be fruitful, some of these wont be. Finding a way to make good choices about where to invest your time is the key to being effective at how build a ML algorithm.
+
+This week will cover a set of diagnostics that you can run to gain insight into what is and isnt working with a learning algorithm, to gain guidance into improving it's performance. Diagnostics can take time to implement but doing so can be a very good of your time.
