@@ -1,0 +1,2 @@
+
+The computation graph is a key idea in deep learning, and it is also how programming frameworks like TensorFlow, automatically compute derivatives of your neural networks. A computation graph breaks down the steps and represent each node in the form of a graph and connect them in the order in which they should occur.
