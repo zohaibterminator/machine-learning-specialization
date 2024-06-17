@@ -1,0 +1,7 @@
+For Model selection, model selection meaning selecting a variant of the model from different model variants (e.g. selecting a variant of the model having 2 degree polynomial etc).
+
+One flawed way of finding an best model is to test the model with different degrees of polynomial from 1 to n, where n is the number of features. This is flawed because when we select the model based on the training error, but training error is a "optimistic estimate" for the test error, meaning the training error we get for a model, is likely lower than the test error we get for that model. 
+
+One correct way of selecting the model is dividing the dataset into 3 sets, training, cross validation/validation/development and test sets. The CV dataset data points can be represented by (x_cv^1, y_cv^1) to (x_cv^m_cv, y_cv^m_cv). So, instead of using the training error for selecting the model, we use the cross validation error to select the best model out of all the polynomial models we tried. Once you pick the best model, you estimate the generalization error using the test set.
+
+This concept can also be applied to NNs. You use different architectures of NN and choose the best model that has the lowest cross validation error.
