@@ -1,7 +1,0 @@
-NN just doesnt work if we use linear activation in all neurons.
-
-If we use only linear activations, the NN will become just another Linear Regression model, meaning it cant work on anything more complicated that the Linear Regression model doesnt already work on.
-
-If we use linear activation in the hidden layer and sigmoid activation in the output layer, than the NN wont be anything different than just a logistic regression model.
-
-Dont use linear actiation in the hidden layers. Use ReLU.
