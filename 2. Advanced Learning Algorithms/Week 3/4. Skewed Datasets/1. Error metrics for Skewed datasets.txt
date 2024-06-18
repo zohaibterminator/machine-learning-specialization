@@ -1,0 +1,17 @@
+If the ratio of positive and negative examples is far from 50-50 in a dataset you are working on, then the usual error metrics like accuracy wont work that well.
+
+For example, if you are training to classify a rare disease, and after training you recieve an accuracy of 99% and get 1% error, which is not as impressive as it sounds. If only 0.5% of the population have it, then a simple, dumb program like this:
+
+print("y=0")
+
+Can get 99.5% accuracy on the dataset and outperforms your model. So, for datasets like these, you cant tell whether the error you got is a good result or a bad one. So you need to have different error metrics than the normal classification ones to evaluate the model.
+
+These metrics are called Precision and Recall. In the current example, y=1 means that the disease is present in the patient, which is a rare class we want to detect. It is useful to construct something called confusion matrix, which is a 2X2 matrix. The top left side of the table contains the values that the model predicted 1 and was correct (also called True Positive), the top right side contains the value the model predicted 1 but was incorrect (called False Postive). The bottom left side of the matrix contains the values that the model predicted 0 but was wrong (called False Negative), and opposite on the bottom right side (also called True Negative).
+
+Precision is defined as of all patients where we predicted y = 1, what fraction actually has the rare disease?
+
+P = TP/(FP + TP)
+
+Recall is defined as of all the patients that actually have the rare disease, what fraction did we correctly detect as having it?
+
+R = TP/(TP + FN)

@@ -1,0 +1,11 @@
+Ideally, we want both precision and recall to be high. But in practice, there is a tradeoff between them.
+
+Suppose you want to increase the threshold to 0.7, so that y is less likely to be predicted as 1. As a result, your precision is increased, because you are more likely to be right when you predict y is 1, but your recall suffers because you are less likely to predict 1, hence correctly diagnose fewer of them. So as a result, you get higher precision but low recall.
+
+Suppose you want to decrease the threshold to 0.3, because you cant afford to miss any diseases, as the consequences will be bad. So the impact will be the opposite on precision and recall, as the precision will be go dowm, because your chances of predicting the disease wrong increases, but your recall will go up, as you are more likely to correctly identify more of them. By choosing a threshold, you can tradeoff between precision and recall.
+
+If you want to automatically tradeoff precision and recall, you can use another metric called F1 Score, that is used to automatically combine values to find the best trade-off between the two. F1 score helps when you have multiple algorithms that have different recall and precision scores, but you cant decide which one is the better one. you can take average of the two, but that isnt really recommended. Suppose algo1 has 0.5 P and 0.4 R. Another algo, algo 2, has 0.7 P and 0.1 R. And finally you have algo 3 which has 0.01 P and 1.0 R. If you take the average of the metrics for each of the algo, turns out that algo 3 has the best score, but if you look at the precision of that algo, it is very low. It measn that the algo is more likely to make a prediction wrong. That is why F1 score is used, because the F1 score pays more attention to whichever is lower (meaning the final answer may be closer to the smaller value of the two).
+
+F1 Score = (2*PR)/(P+R)
+
+The equation is also called the Harmonic mean of precision and recall, and its the way of taking an average that emphasizes the smaller values more. If you calculate the F1 Score of the algos above, you will find that the F1 Score of algo 1 is the highest, 0.444.
