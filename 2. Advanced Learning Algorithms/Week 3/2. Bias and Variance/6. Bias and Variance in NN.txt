@@ -1,0 +1,15 @@
+NN gives us new ways to address high variance and high bias. Before NN, we used to talk about the bias/variance tradeoff, that we should find a model is complex enough to do well on training data, but should generalize enough to do well on test data as well. But NN are unique, because large NNs are low bias machines, as, long as you have a moderate sized dataset. This allows us to try new ways to reduce bias and variance without trading off either of them. Here are some steps you can take to reduce bias or variance in your NN:
+
+1. First train your model, and see if it the training error is high. If the error is high, than the NN has a high bias problem. To reduce that, make the NN bigger, and then train it. Repeat this until you reached a desired performance criteria.
+
+2. If the model does well on the training data, then see how well it does on cross-validation data. If the model doesnt do well on the cross-validation set, than get more data, and then retrain the model and see if it still does well on training data or not. Repeat this loop till the model does well on both training data as well as cross-validation data.
+
+There are some limitations to this. If you make your network bigger and bigger, it becomes more and more computationaly expensive. This is why the rise of NN has been assisted by fast computers and GPUs. Even then, the NN can become very expensive. Then there is the problem of getting more data. Sometimes, it is not feasable to get more data.
+
+Moving to a bigger NN for a problem may not cause the NN to overfit the data, unlike regular ML models. Because a bigger, appropriately regularized NN, will do as well or even better than a smaller one, as long as it is regularized appropriately.
+
+To implement regularization in NN in TensorFlow, you pass an additional parameter "kernel_regularization" when initalizing a Dense layer, along with the lambda value:
+
+layer_1 = Dense(units=25, activations='relu', kernel_regularization(0.01))
+layer_2 = Dense(units=15, activations='relu', kernel_regularization(0.01))
+layer_3 = Dense(units=1, activations='sigmoid', kernel_regularization(0.01))
