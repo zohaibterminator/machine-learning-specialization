@@ -1,0 +1,11 @@
+Lets say you applying regularization on a 4th order polynomial mode having the following equation:
+
+f_wb(x) = w_1x + w_2x^2 + w_3x^3 + w_4x^4 + b
+
+If you pick a very large value for lambda (like 10000), than the algorithm will be highly motivated to keep the parameter's value very small. So what will end up happening is that all the W parameters will be close to zero, so effectively, you model f_wb(x) will just become approx. equal to b. So if you plot, you will find that the algorithm is represented by a simple horizontal line. As a result, you will end up with a model that has high bias, because it underfits the data.
+
+If you pick a very small value of lambda (like 0), their will be no regularization and the performance of the model will be equal to the performance to a 4th order polynomial model that will overfit the data and have high variance.
+
+To pick a good intermediate value of lambda, you will need the help of cross-validation set. You will use a similar method of picking the best value as you used in selecting the best performing model. You will use a range of lambda values, and use them to train a model, the value that gives the best performance (has low cross-validation error), gets used.
+
+If you plot the values of training error and cross-validation error with lambda values on the x-axis, you will see that at the initial point, where lambda is zero, the training error will be the lowest, and the cross-validation error will be very high. But as you increase the value of lambda, the training error will increase and will be the highest for the largest value of lambda. The cross-validation error will be plotted as like a parabola, it will be high at the smallest value of lambda, slowly go down overtime, and then pick up again and then again be very high for the largest value of lamda. The best value of lambda, will be somewhere in the middle, when both training and cross-validation error will be lower.

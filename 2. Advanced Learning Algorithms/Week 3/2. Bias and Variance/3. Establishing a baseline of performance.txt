@@ -1,0 +1,15 @@
+Lets take an application of speech recognition. The speech recognition model's job is to transcribe what the user is saying. If you were to train a model and calculate the training error, which is the fraction of the audio clips it transcribes incorrectly, and it gets 10.8 percent training error, meaning it got 89.2 percent of the audio clips right. You also calculate the cross-validation error, which turns out to be 14.2 percent.
+
+Now if you look at the numbers, you would think that the training error is really high, and when you look at the CV error, its even worse. A high training error may lead you to believe it has high variance. But if you are analyzing speech, it is useful also measure the human level or performance, or how well a human can transcribe an audio clip. When you calculate the human level performance, the error turns out to be 10.6 percent. Why is it high? Because in speech recognition is lets say web search, the audio a lot of times can be noisey and distorted, making it impossible to transcribe what was said accurately. If the human error is 10 percent, its hard to imagine a model to do any better, considering humans are really good at transcribing. So in an application like speech recognition, it is useful to see how well the model performs compare to humans. Our model only performs 0.2 percent worse than humans, which is good.
+
+But you can see that the CV error is high, there is a 4 percent difference between the CV error and human error. So, what was initally diagnosed as the model having high bias, it turns out is performing well on the training set, but not as well on the CV set. So therefore the model has high variance instead of high bias.
+
+When judging that a model's training error is high, is often useful to establish a baseline level of performance, meaning that level of error you can reasonably expect the model to eventually get to. When establishing a baseline level of performance, you can use following ways to do that:
+
+1. See how well a human performs on that task. Humans are good at processing images, understanding speech data or texts. Human level performance is often a good benchmark when you are using unstructured data, such as: audio, images or texts.
+
+2. See how a competing algorithm perform. It can be a rivals algorithm, a previous implementaion of an algorithm etc.
+
+3. Guess based on previous experience.
+
+To diagnose whether your model has high variance or high variance, you can compare the training error with the baseline performance and training error with the test error. If the difference between training error and baseline performance is low, but the difference between training error and cross validation error is high, the model has high variance. If the opposite is true, the model has high bias.

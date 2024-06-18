@@ -1,0 +1,13 @@
+Learning curves are a way to help understand how your learning algorithm is doing as a function of the amount of experience it has, experience meaning for e.g. the number of training examples it has.
+
+Lets plot the learning curve of a 2nd order polynomial model:
+
+f_wb(x) = w_1x + w_2x^2 + b
+
+The horizontal axis of the plot will be the m_train (the number or size of training examples) and on the y-axis the error. If you plot the CV error, you will see it is the highest at the smallest size of training examples, and then slowly tapers off as the training set's size increases. The training error meanwhile will be lowest at the smallest training set size and then slowly increases as the training set size increases.
+
+This is because, when you have a single training example, it is easy to make a model that results in a straight line through the example and achieve zero training error. Our model can get zero training even there are 3 training data points. But as you increase the training set size, the line required to get zero error gets more and more complex and at one point, becomes impossible for our 2nd order polynomial model to get zero training error.
+
+Lets look at the example of a model having high bias, meaning it underfits the data. Lets take a simple LR model of 1st order polynomial. You will see that, as the training set size increases, the training error and CV error sort of plateaus, and no matter how much training data you throw at the model, the error wont move. Because we are plotting a straight line, no matter how many training data you add in, you wont change the error all that much. If you plot a line in the learning curve plot that indicates the baseline level performance, you will see that both the CV error and training error will be above that line.
+
+Lets look at the example of a model having high variance, meaning it overfits the data. Lets take a LR model of 4th order polynomial. You will see the training and CV error has a similar trajectory, but there will be a bigger gap b/w the training error and CV error plot, indicating a big dip in performance due to overfitting. If you plot a line in the learning curve plot that indicates the baseline level performance, you will see that the training error will be below that line, while CV error will be above it. But this time, increasing the training set size will prove to be beneficial, because even though the training error will increase, the CV error will dip, which means that both the CV error and training error will become closer to the baseline performance level.
