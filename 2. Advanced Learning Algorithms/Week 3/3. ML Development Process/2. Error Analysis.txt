@@ -1,0 +1,15 @@
+Error analysis is one of the two most important ways  tohelp you run diagnostics alongside bias and variance.
+
+Suppose you have 500 examples in the CV set:
+
+m_cv = 500
+
+Algorithm misclassiffies 100 of them.
+
+Error analysis is, manually examine 100 examples and try to gain insights on where the algorithm is going wrong. What we normally do is try to group the examples the algorithm misclassified into common themes or common properties or common traits.
+
+For example, of the 100 examples, you notices that there are a lot of misclassified examples that are pharmaceutical sales, trying to sell medicine or drugs. You count them by hand they add up to 21. Lets say you also found 3 misclassified examples containing misspeled words, 7 misclassified emails with unusual routing, 18 emails to steal passwords or phishing emails and 5 emails have spam messages in the embedded images. Analyzing the examples misclassified, you will see that the model missclassifies pharmaceutical and phishing emails the most and in contrast, classifying emailss with deliberate misspeling may not be that big of a issue. One other thing, the categories may b e overlapping. Also, if the CV set is very large (for e.g. containing 1000), it may be more reasonable to look at subsets of the misclassified examples.
+
+After deciding which categories to focus on, you may collect more data but just for that category, or add more features etc.
+
+Error analysis is usually useful for problems the humans are good at. For e.g. if you are predicting which url the user will click on among multiple urls returned by a search engine, well, no one will know for certain that a particular url might be the one the user clicks on. So, here, error analysis wont be of much use.

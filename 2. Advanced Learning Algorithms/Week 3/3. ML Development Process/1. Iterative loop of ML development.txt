@@ -1,0 +1,9 @@
+This is what developing a ML model will look like:
+
+1. Choose architecture of the model (decide on the type of model, what data to use, maybe picking hyperparameters etc)
+
+2. Train the model.
+
+3. Diagnostics (bias, variance and error analysis)
+
+4. Go back to altering the architecture (adding/subtracting features, changing regularization parameter, add more data, make the NN bigger etc) using the insights gotten from the diagnostics.

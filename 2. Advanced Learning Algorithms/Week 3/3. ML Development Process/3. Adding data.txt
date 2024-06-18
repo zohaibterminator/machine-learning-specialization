@@ -1,0 +1,20 @@
+Sometimes it may be tempting to add more data about everything, but it is more useful to only collect data of the types where the error analysis has indicated it might help.
+
+Data Augmentation:
+
+There is another technique to get more data used for image and audio data called Data Augnmentation. In this technique, we will create new data by modifying the existing data. For example, you have the images for letters, and the algorithm is having a hard time recognizing images of letter A. What you will do is, you will use an image of letter A, you will create a new image by rotating the image a bit, by enlarging/shrinking it, by changing the contrast of the image, and for some letters, you can mirror the image. By adding distortions to create new images, not only you create new data for that image but also dont fundamentally alter what the image is, meaning the image of the letter A, will still be an image of the letter A even if you rotate it.
+
+A more advanced form of data augmentation is that you place a grid over the image of letter A, and introduce warpings of the letter to produce a much richer library of examples of the letter A.
+
+Data augmentation can also be applied for speech. For example, you have an audio clip of someone saying, "What is today's weather?" You can apply data augmentation by adding a noisey background like noises of a large crowd talking, noises of cars travelling and honking etc. A more advanced data augmentation can be that you can make the person speaking sound like thery are talking on a bad cellphone connection.
+
+One tip on applying data augmentation is, the distortion introduced should be representation of the type of noise/distortions present in the test set. For example, after applying data augmentation, the letter A should still look like the letter A. The noises you add to the audio should be representative of what you expect to hear in the test set.
+
+Random noise/distortions shouldn't be added into the data. For example, you decided to add per pixel noise to the image of the letter A. The resultant image wouldnt look like any images of A in the dataset, so this might inadvertently effect the performance of your model on images of A.
+
+Data Synthesis:
+Another technique to make new data is data synthesis. In data synthesis, you create brand new data from scratch, not through existing examples but by creating brand new ones. For example, you have a dataset of images and you have to perform OCR on it and detect the texts in the data. What you can do to create new data is to write texts of multiple fonts, and take screenshots of the text in multiple fonts and contrasts etc, to create new data.
+
+A ML system or AI ystem contains both the code to implement your algorithm or your model and the data you trai the model on. Usually, the conventional model-centric approach aims to improve the performance of the model. Most of the researchers follow this approach and just download the dataset and keep it fixed while they focus on improving the model performance.
+
+Thanks to that paradigm of ML research, the models we have access to today such as linear regression, logistic regression, NN etc, are algorithms that are already very good and will work well for many applications. So sometimes it is more fruitful to spend more of your time taking data centric approach, in which you focus on engineering the data used by the model through things like adding more data, using dat augmentation to generate more images or audio or using data synthesis to create more training examples.
