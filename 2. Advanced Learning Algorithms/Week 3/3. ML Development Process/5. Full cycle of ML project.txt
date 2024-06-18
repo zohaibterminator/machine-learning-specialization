@@ -1,0 +1,11 @@
+Lets take an example of a ML project for speech recognition. The cycle of the ML project is as follows:
+
+1. Scope of the Project: Decide what is the project and what you want to work on. For example, speech recognition for voice search, using your voice for web search.
+
+2. Collect Data: Decide the data you want to work on and get the audio and the transcripts of the labels for your dataset.
+
+3. Train the Model: Train the model for speech recognition, carry out error analysis and iteratively improve the model. It is not uncommon to carry out error analysis or bias/variance analysis and realize you need to collect more data.
+
+4. Deploy the Model: Deploy the model in a production enviroment, meaning you make the model available for the users to use. Make sure to maintain the system and monitor it. Sometimes, you realize the model is not working well, so you go back to training the model, or even go further back to collect more data. If you have permession to use the data from the production enviroment, that gives you access to more data to improve the model.
+
+Here is how deployment works. You take your model, and put it in a server, called Inference Server. If your team has implemented a mobile app, for web search, then when a user speaks to the mobile app, the app can make an API call to pass the audio clip to the Inference server, which then makes a prediction, and return it to the application, which in our case, will be the text transcripts of what was said by the user. To implement this, you may need some SE to ensure reliable and efficient predictions, scalng, logging the users audio and the prediction made by the model (assumng the user gives consent to storing their data). Then the data you use then is useful for system monitoring. System monitoring can be useful, because for example, your speech recognition model starts recieving audio clips for celebrities that suddenly got famouse, or new politicians that got elected in the latest elections. The system monitoring can help figure out that the data is shifting and allow you to retrain the model to perform model update, and replace the model with the new one. The amount of SE needed depends on the amount of users you will serve.
