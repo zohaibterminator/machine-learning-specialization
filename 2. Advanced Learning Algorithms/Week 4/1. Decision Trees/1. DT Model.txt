@@ -1,0 +1,7 @@
+DT and Tree ensembles are widely used algorithms, most commonly used in machine learning competition due to their performance.
+
+Consider a cat classification example. The problem is: you are running a cat adoption center, and you want a classifier that classifies whether an animal is a cat based on some features. The features are Ear shape, Face shape and whiskers. The Ear shape can be pointy or floppy, face shape can be round and not round, and whiskers can be present or absent. The final column is named Cat, where 1 indicates that the animal is a cat, and 0 indicated that the animal is not a cat (in our case, it will be a dog). Here, we can see that the features take on categorical values, or take some discrete values.
+
+A DT is composed of nodes, which are of three types. There is the root node, decision node and leaf node. The root node is the top most node from where the decision trees begin. Decision node is called as such because it allows you to make a decision to go left or right based on the value of a feature. The leaf node is called as such because it appears at the end of the node, and it is used to make an inference.
+
+There can be multiple DTs for a given application, the DT algorithm's job is to find one that does good on the training data, but can also generalize well on unseen data.
