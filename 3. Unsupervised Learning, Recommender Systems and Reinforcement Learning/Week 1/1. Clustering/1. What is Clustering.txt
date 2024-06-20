@@ -1,0 +1,10 @@
+Clustering algorithm looks at a number of data points and automatically finds data points that are similar to each other.
+
+In supervised learning, if you have a binary classification problem, you had both the features x as well as the label y. In contrast, in unsupervised learning, you only get the features x, but no label y. Since we dont have the target labels, we cant tell the algorithm what is the "right answer" that we want to predict. Instead, we will ask the algorithm to find something interesting in the data. One type of unsupervised learning algorithm is called the clustering algorithm, which looks at the dataset and try to see if it can be grouped into clusters.
+
+Some applications of clustering include:
+
+* Grouping similar news together.
+* Market segmentation (People at Deeplearning.ai used this to segment the types of learners that took their courses)
+* Grouping people with similar DNA.
+* Astronomers using clustering to group bodies together to figure out which ones form one galaxy or which one form coherent structures in space.
