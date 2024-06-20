@@ -1,0 +1,13 @@
+Random Forest algorithm is a tree ensemble algorithm. The basic tree ensemble algorithm is as follows:
+
+Given a training set of size m
+
+for b=1 to B:
+    Use sampling with replacement to create a new training set of size m
+    Train a decision tree on the new dataset
+
+This process of creating dataset from another dataset using sampling with replacement and train DTs with it is called bagging. The B in this case is the number of Bagged decision trees. Typical choice of B is around a 100. Some people recommend 64 to 128 as good values for B. Setting the value of B almost never hurts performance but after a certain point you end up with diminishing returns and a very slow classifier or regressor.
+
+This was the algorithm of basic bagged DTs. But we can further improve on this algorithm. What happens is even if sampling with replacement, you sometimes end up with the same split at the root node along with at other nodes in multiple trees. So Random forest, to further randomize the selection of the features, picks a random subset of size K which is less than n (n being the number of features) and allow the algorithm to only choose from that subset of features. Normally the value of K is selected as sqrt(n) but this method of selecting k is used in very large datasets.
+
+Random forest algorithm is better and more robust to small changes than the normal DT algorithm is that the sampling with replacement procedure already allows the algorithm to explore the dataset with multiple changes, so if any chamge happens in the actual dataset, there might be a chance that such change has been adapted by multiple DTs already through sampling with replacement.

@@ -1,0 +1,5 @@
+We use sampling with replacement technique to create tree ensembles.
+
+Here's what sampling with replacement means. If you have 4 tokens with 4 different colors (red, green, blue, yellow) and you put them in bag, you will shake the bag, take out or "sample" a token and note down the color you got. You will then put the token back in or "replace" the token in the bag, and shake it again before picking a token from the bag again for a number of iterations. This process is called Sampling with Replacement. You can get same color of tokens back to back, you might not get a token of a particular color not even once.
+
+We will apply this method of sampling to construct new training dataset of the same size (10 examples) as the original dataset.

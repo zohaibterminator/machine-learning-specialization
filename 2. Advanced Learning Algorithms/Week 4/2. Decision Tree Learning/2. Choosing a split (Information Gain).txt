@@ -1,0 +1,18 @@
+Reduction of entropy is called Information Gain. Lets see how we can calculate IG and choose the feature to split the data with.
+
+If we choose to use Ear shape as the feature to split, then the entropy of both right and left branch will be 0.72. If we use Face shape, then the entropy of left and right branch will be 0.99 and 0.92 respectively and if we choose whiskers then the entropy will be 0.81 and 0.92 for left and right branch respectively. Now, it turns out instead of just comparing these entropy numbers, we take a weighted sum of the entropy numbers and combine the two entropy numbers associated with each node into a single number called Information Gain. We do this because the entropy also depends on how many examples are on each side of the node. If a feature splits the data in the way that in one of the branches the number of examples are greater than the other, than we need to see that the entropy the branch with the greater number of examples is low.
+
+To calculate the weighted sum of the entropies, we will do this. Suppose the Face shape splits the data into a 70-30 splits, with 7 of the 10 examples going to the left side, and the other 3 on the right side. If the entropy of the left and right branch of the node is 0.99 and 0.92 respectively, then the IG will be:
+
+I.G(Face Shape) = entropy(root_node) - (7/10*0.99 + 3/10*0.92)
+
+By subtracting from the entropy of the root node, we will see how much the split reduces the impurity. So, therefore, the feature with the biggest I.G value will be picked, because it reduces the entropy or impurity the most. By checking the reduction in entropy, we can decide when to stop based on how much entropy is being reduced. The general formula of I.G is:
+
+I.G(feature) = H(p_1^root) - (w^left*H(p_1^left) + w^right*H(p_1^right))
+
+Where:
+    H(p_1^root) = entropy of the root node
+    w^left = number of examples on the left branch after splitting
+    w^right = number of examples on the right branch after splitting
+    H(p_1^left) = entropy of the left branch
+    H(p_1^right) = entropy of the left branch

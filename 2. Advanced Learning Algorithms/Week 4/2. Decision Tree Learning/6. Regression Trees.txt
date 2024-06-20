@@ -1,0 +1,7 @@
+Regression trees allows us to predict a number instead of a class and can be used to solve regression problems.
+
+We will modify the cats classification dataset again, and this time we will use the weight feature as our target variable. The original target variable will be removed, and the rest of the features will remain the same. So we will try to predict the weight of the animal instead of predicting whether the animal is a cat or a dog.
+
+Consider an already constructed DT. We will use the average of the weights of the examples at that side of the DT where the example falls on. Look at the decision tree picture, if an animal has pointy ears and round face shape, it will fall on the left most side of the DT. There are 4 examples that fall on that side of the DT, having weights 7.2, 8.4, 7.6 and 10.2 lbs. We will find the avg of these weights (which is 8.35) and predict that the animal whose weight we want to predict, weighs about 8.65lbs.
+
+The main question is, on what basis should we select the feature to split on? We will instead try to reduce entropy, we will reduce variance of the weights. We will use a similar way to calculate the I.G of each feature by calculating the weighted sum of the variance of the feature and subtracting it from the variance of the root node. The feature with the most I.G will get selected.

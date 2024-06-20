@@ -1,0 +1,12 @@
+Pros and Cons of DT and Tree Ensembles:
+* Works well on tabular (structured) data.
+* Not receommended for unstructured data (text, audio, images)
+* Fast to train. This allows you to loop through the ML Development cycle and improve your model more effeiciently.
+* Small decision trees may be humain interpretable. If you are training a small DT, than it may be wise to print it out and see if it works well or if there are some issues with it.
+* Tree Ensembles can be computationally expensive.
+
+Pros and Cons of NN:
+* Works well on both tabular (structured) and unstructured data.
+* May be slower than a DT.
+* Works with transfer learning.
+* When building a system of multiple models working together, it might be easier to string together multiple NNs.

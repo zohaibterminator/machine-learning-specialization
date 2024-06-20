@@ -1,0 +1,11 @@
+Entropy is a measure of the impurity of a set of data. Here's how we calculate it.
+
+Given a set of examples with 3 of them belonging to the cats class and the rest belonging to the dogs class, lets define p_1 as the fraction of examples with label 1, or belonging to cats class. p_1 in our case is 3/6. We will measure the impurity of the set using entropy, which is denoted by H(p_1). When you plot the function with p_1 as the x-axis and value of H(p_1) as y-axis, it will look like a curve resembling a rainbow. The entropy, or impurity, is maximum when the examples are 50-50, as in our case. The entropy is 0, or minimum, when all the examples of the set belong to a single class. Lets now define p_0 which is the fraction of classes that are not cats (p_0 = 1 - p_1). The entropy function is defined as:
+
+H(p_1) = -p_1*log2(p1) - p_0*log2(p_0)
+
+By convention, we take log to the base 2 (this is dependent on the number of classes you have). You can also write entropy as:
+
+H(p_1) = -p_1*log2(p1) - (1 - p_1)*log2(1 - p_1)
+
+We take the log of base 2 just to make the peak of the entropy curve to be 1. One thing to note here is that if p_0 or p_1 is 0, then the expression will become 0*log2(0), but log2(0) is undefined, but by convention, we will compute this as 0. There are multiple criterias to measure impurity like the Gini criteria that is used and is similar to entropy.

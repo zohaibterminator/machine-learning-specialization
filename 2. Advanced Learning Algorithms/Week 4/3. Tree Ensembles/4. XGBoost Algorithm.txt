@@ -1,0 +1,18 @@
+The XGBoost algorithm works on the concept of deliberate practice. If you are learning to play the piano, instead of practicing a 5 min piece over and over again, you just focus your practicing a small part of it where you weren't doing so well. That is the intuition of Boosting algorithms. Rather than looking at all the examples in a training set, we are focusing more attention on the examples that the previous DT did poorly on. We will focus more on XGBoost The algorithm is as follows:
+
+Given a training set of size m
+
+for b=1 to B:
+    Use sampling with replacement to create a new training set of size m
+        But instead of picking from all examples with equal probabilities, make it more likely to pick missclassified examples from previously trained trees
+
+    Train a decision tree on the new dataset
+
+XGBoost stands for eXtreme Gradient Boosting has some properties that make it very good:
+
+* Open source implementation of boosted trees.
+* Fast and effiecient
+* Good choice of default splitting stopping criteria
+* Built in regularization to prevent overfitting
+
+Due to these properties, XGBoost algorithm is also popular choice for participants in various ML competitions like the ones hosted on Kaggle. Also, rather than applying sampling with replacement, XGBoost assigns different weights to training examples, due to which it doesnot need to generate a lot of training sets. To use XGBoost algorithm, just import XGBClassfier or XGBRegressor from the xgboost library and initialize it, and fit the training data into it to train the model. Finally, use the predict method to get predictions for test set or validation set to evaluate the model's performance.

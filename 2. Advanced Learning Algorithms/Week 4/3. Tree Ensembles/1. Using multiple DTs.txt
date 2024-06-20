@@ -1,0 +1,5 @@
+One of the weaknesses of DTs is that they are sensitive to small changes in the data. One solution is to make multiple DTs called Tree Ensembles.
+
+If you change just one training example in the cat classification dataset like changing a cat's ear shape from pointy to floppy, the whiskers feature will be selected as the root node because it's I.G will become higher. So, just from this small change can cause the algorithm to come up with a different split at the root, makes the DT not that robust.
+
+Inference is done by selecting a value as prediction with the majority vote of the trees. If we have three DTs, if we run an example test case on them and 2 out 3 trees predict Cat, and one predicts that the animal is not Cat, due to the majority vote, Cat will become the final prediction. This makes the algorithm less sensitive because it doesn't depend on 1 tree, but multiple trees.
