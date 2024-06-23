@@ -1,0 +1,17 @@
+The algorithm is:
+
+Randomly initialize K cluster centroids.
+
+Repeat {
+    # Assign points to cluster centroids
+    for i = 1 to m:
+        c^i = index (from 1 to K of cluster centroids) closest to x^i
+        (Find the distance through Euclidean distance formula)
+}
+    # Move the clusters
+    for k = 1 to K:
+        μ_k = average (mean) of points assigned to cluster k
+
+If a cluster is not assigned a point, than you can either eliminate that cluster, or randomly assign a value to it again, so that it can be assigned some cluster.
+
+You can use to decide the sizes of small, medium and large shirts based on Weight and height of people. But, weight and height vary continuously without some very clear clusters. But KMeans will still work in dividing the values into clusters, even if the data doesnt lie in well-seperated groups.

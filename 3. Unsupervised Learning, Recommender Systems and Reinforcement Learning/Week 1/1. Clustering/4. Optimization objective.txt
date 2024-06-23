@@ -1,0 +1,15 @@
+In supervised algorithms, we defined a cost function which we then minimize or optimize using a Gradient descent algorithm. KMeans also optimizes a cost function but it doesnt use GD.
+The cost function is:
+
+J(c^(1), ..., c^(m), μ_1, ..., μ_K) = 1/m(Sum((x^(i) - μ_c^(i))^2))
+Where,
+
+c^(i) = index of cluster (1, 2, ..., K) which is assigned to x^(i)
+μ_k = cluster centroid k
+μ_c^(i) = cluster centroid of cluster c^(i)
+
+So, as we can see, the KMeans is essentially minimizing the squared distance between a point x^(i) and it's assigned cluster centroid μ_c^(i). The cost function is also called Distortion function.
+
+If you look at the cost function J(c^(1), ..., c^(m), μ_1, ..., μ_K), the first step of assigning the points to clusters, is bascally optimizing the c^(1), ..., c^(m) part, while keeping the μ_1, ..., μ_K part fixed. It is optimizing the cost function by assigning the point to its closest centroid. Meanwhile the second step of computing or moving clusters to new locations is doing the opposite. If you just take the squared distance of a point, and then find the mean of the points assigned to it, you will see that the distance between the assigned points and the cluster centroid would have been reduced, which also optimizes the cost function.
+
+If the cost function ever stops going down or becomes very very slow, it usually means the KMeans has converged, so you should stop the algorithm there.

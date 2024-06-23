@@ -1,0 +1,5 @@
+The very first step of the algorithm is to assign random variable to cluster centroids 1 through K. It turns out you can take multiple guesses for initial values which can result in finding better clusters.
+
+First of all, you should always make K to be smaller than n, which is the number of training examples.
+
+One common way to initialize cluster centroids is to pick K random training examples and assigned them to the cluster centroids. What happens in this type of initialization is that even if your data is seperated into different parts where clustering can be easy, due to random initialization, two cluster centroids may be assigned to the same part of the data. From this initialization, your algorithm may not reach the global optimization. This means your initialization of the clusters can result in your algorithm becoming stuck in a local optima. To solve this, you can try running the algorithm multiple times. The normal range is 50-1000 times.
