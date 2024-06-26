@@ -1,0 +1,19 @@
+Lets make a model of anomaly detection that works on multiple features. Assume a training set x^(1) to x^(m), and each example has n features. In the airplane example, we had 2 features, so each vector is a 2-dimensional vector and would be equal to 2. But for many practical applications, n can be much larger.
+
+Given this training set, we will carry out what's called Density estimation, which means we will build a model to estimate the probability for P(x). For each vector x_1 to x_n , I am going to model P(x) as:
+
+P(x) = p(x_1) * p(x_2) * p(x_3) * ... * p(x_n)
+
+This means we have assumed that the features are independent. But this algorithm works even if the features are not independent. To model the probability of p(x_1), we are going to have 2 parameters μ_1 and σ2_1, which means we will estimate the mean and standard deviation of feature x_1. Same for feature x_2. So, the equation will become:
+
+P(x) = p(x_1; μ_1, σ_1^2) * p(x_2; μ_2, σ_2^2) * p(x_3; μ_3, σ_3^2) * ... * p(x_n; μ_n, σ_n^2)
+
+So the anomaly detection algorithm will be:
+
+1. Choose n features x_i that you think might be indicative of anomalous examples.
+
+2. Fit parameters μ_1,...,μ_n, σ_1^2,...,σ_n^2
+
+3. Given new example x, compute p(x). if p(x) < epsilon, then it is an anomaly.
+
+One intuition of what this algorithm is doing is that it will be flagging an example to be anomalous if 1 or more features are either very large or very small relative to the features it has seen in the dataset.

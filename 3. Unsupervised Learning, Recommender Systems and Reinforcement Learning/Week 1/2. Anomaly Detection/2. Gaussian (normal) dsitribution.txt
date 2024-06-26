@@ -1,0 +1,13 @@
+For anomaly detection, you will need to use Gaussian or normal distribution. Lets a variable x, and if x is random number, sometimes called a random variable, and can take on random values. If the probability of x can be given by Gaussian or normal distribution with mean parameter μ and with variance σ2, what this means is that the probability of x looks like a bell-shaped curve. The center or the middle of the curve is given by mean μ and the standard deviation or the width of this curve is given by that variance parameter σ.
+
+P(x) means that if you get practically infinite number of examples and you were to draw a histogram of this practically infinite number of examples with a very fine histogram bin. Then you end up with an essentially a bell-shaped curve. The formula of P(x) is:
+
+P(x) = (1/sqrt(2πσ)) * e^(-(x-μ)^2/2*σ2)
+
+This is how you will apply Gaussian distr. on anomaly detection. Given a dataset, you will have to estimate what will be a good value for μ and σ2. The formula for the values of μ and σ2 is:
+
+μ = 1/m * Summation(X^(i)) (take average)
+
+σ2 = 1/m * Summation(x^(i) - μ)^2
+
+The formula for μ and σ2 are called Maximum likelihood estimates of μ and σ2. By calculating values, you will be able to calculate P(x), and if it is pretty high, it's ok, if it is low, than it is an anomaly. Now, this is only for one feature. For practical anomaly detection applications, you usually have a lot of features.
