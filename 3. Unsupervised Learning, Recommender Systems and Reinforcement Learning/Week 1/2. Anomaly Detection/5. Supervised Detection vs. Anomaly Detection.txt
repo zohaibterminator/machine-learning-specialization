@@ -1,0 +1,7 @@
+An anomaly detection algoritm will be the better choice in the following scenarios:
+
+1. Very small number of positive examples (y=1) (0-20 is common).
+
+2. Very large number of negative (y=0).
+
+A supervised learning algorithm is
