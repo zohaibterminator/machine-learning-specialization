@@ -1,0 +1,15 @@
+An anomaly detection algoritm will be the better choice in the following scenarios:
+
+1. Very small number of positive examples (y=1) (0-20 is common).
+
+2. Very large number of negative (y=0).
+
+A supervised learning algorithm is the better choice if large number of positive and negative examples. Even if you have 20 positive examples, it might be okay to apply supervised learning algorithm.
+
+But it turns out that the way anomaly detection looks at the data set versus the way supervised learning looks at the data set are quite different. The main difference is that if there are many types of anomalies or many different types of positive examples, than anomaly detection will be the better choice. If future anomalies may look nothing like any of the anomalous examples we have seen so far, than anomaly detection may be used. Because anomaly detection algorithm learns what a normal example looks like, so anything that dviates from that will automatically be flagged by the anomaly detection system.
+
+But in case of supervised learning algorithm, it learns or try to get a sense of what positive examples are like. in supervised learning we tend to assume that all the future positive examples are going to be similar to the ones in our training dataset.
+
+One example of where anomaly detection is used is to detect financial fraud, because there are new types of fraudulent methods are used by individuals. Since, the new types of frauds every few months or years that are nothing like the one we have seen before, so anomaly detection should be used to look for anything different in the new transactions that are taking place.
+
+In contrast, look at the example of spam detection. Even though there are many types of spam emails, they keep on trying to sell you similar things or get you to go to similar websites. This is why supervised learning is used to detect spam because the supervised learning algorithms tries to learn the types of spam emails, that will be similar to the ones it will encounter in the real-world.
