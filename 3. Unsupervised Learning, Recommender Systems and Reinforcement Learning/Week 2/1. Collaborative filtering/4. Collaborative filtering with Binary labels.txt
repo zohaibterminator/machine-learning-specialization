@@ -1,0 +1,5 @@
+What if instead of given a rating between 1-5 or 0-5, you had a binary value 0 or 1 a users gives to a movie that indicates that they liked it or not.
+
+Binary values 1 and 0 can represent different things in collaborative filtering. For example to represent if a user j purchase an item after being shown, 1 could mean they engaged after being shown the item, 0 could mean they did not engage after being shown the item, and ? could mean the item has not been shown to that user. Binary could also be assigned based on user behavior. Lets say a user gets shown an item and the they spend at least 30 seconds on it, then the user liked the item and the y^(i, j) becomes 1, if the user did not spend 30 seconds on it, then the user did not like an item. The label could also be assigned based on whether the user clicked on the item or not after it being shown to them.
+
+So, when predicting the labels for the user, we will calculate the prediction for the user as usual with the linear regression equation, but we will now add another step and pass that result through a sigmoid function, similar to how we transitioned from linear regression to logistic regression.

@@ -1,0 +1,11 @@
+Lets look at a recommender system that has features of each items, or in our case, each movie.
+
+We will add additional features to the dataset, x_1 and x_2, each contain a number between 0 and 1 that denotes how likely a movie belongs to the romance and action categories respectively. We will use another additional piece of notation, n. Where n denotes the number of features that each of the items has, which is 2, x_1 and x_2.
+
+Lets see how we can make prediction for the ratings for user 1. The model used to predict the users rating is:
+
+w . x^(i) + b
+
+This looks like the Linear Regression formula, except that we will fit a different linear regression model for each user.
+
+For the cost function, we will use the same mean squared error criteria, except that we will find the mean squared error using those examples where r(i, j) = 1, so all the movies the user has rated. We will then divide the sum by 2*m^(j). Actually, in recommender systems, we actually remove the m^(j) term, and just divide by 2.

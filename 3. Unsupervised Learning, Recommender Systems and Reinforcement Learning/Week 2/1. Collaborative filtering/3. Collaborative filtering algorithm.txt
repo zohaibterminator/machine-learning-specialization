@@ -1,0 +1,7 @@
+Lets look at what you can do if you dont have access to the features of each items in advance and how you can come up with them using the data.
+
+Lets say you dont have the values for features x_1 and x_2, but you have parameters for the linear regression you used to predict the ratings for all the users, you can use it to calculate the feature vector x^(1) for movie 1, x^(2) for movie 2, etc.
+
+The two algorithms we have learned are combinedly called Collaborative filtering. When combined the cost function becomes a function of 3 parameters, w, b and x. If we want to minimize the cost function using GD, we also update the parameter x_k^(i). The algorithm is called Collaborative filtering is called as such because multiple users collaboratively have given you ratings for movies, though which you can calculate the features for the movies, which you can then use to predict the ratings of the movies the users has not given rating to.
+
+We have been using ratings from 0-5 or 1-5, but a common use case for collaborative filtering uses binary labels like a users favors or likes or interact with a particular item.
