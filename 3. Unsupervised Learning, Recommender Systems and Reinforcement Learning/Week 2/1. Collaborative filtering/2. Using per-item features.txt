@@ -4,8 +4,18 @@ We will add additional features to the dataset, x_1 and x_2, each contain a numb
 
 Lets see how we can make prediction for the ratings for user 1. The model used to predict the users rating is:
 
-w . x^(i) + b
+f = w^(j) . x^(i) + b^(j)
+
+Where x^(i) represents the feature vector for ith movie, and the superscript j on the parameters represent the parameters of the model for the jth user.
 
 This looks like the Linear Regression formula, except that we will fit a different linear regression model for each user.
 
-For the cost function, we will use the same mean squared error criteria, except that we will find the mean squared error using those examples where r(i, j) = 1, so all the movies the user has rated. We will then divide the sum by 2*m^(j). Actually, in recommender systems, we actually remove the m^(j) term, and just divide by 2.
+For the cost function, we will use the same mean squared error criteria, except that we will find the mean squared error using those examples where r(i, j) = 1, so all the movies the user has rated. We will then divide the sum by 2*m^(j). Actually, in recommender systems, we actually remove the m^(j) term, and just divide by 2. So, the final cost function will be:
+
+j(w, b) = 1/2 * sum((w^(j) * x^(i) + b^(j) - y^(i, j))^2)
+
+And the regularized cost function will be:
+
+j(w, b) = 1/2 * sum((w^(j) * x^(i) + b^(j) - y^(i, j))^2) + lambda/2 * sum(w^(j) ** 2)
+
+Again, we will only calculate the cost function of the movies that the user has alreay given ratings to (i.e. all the examples where r(i, j) = 1).

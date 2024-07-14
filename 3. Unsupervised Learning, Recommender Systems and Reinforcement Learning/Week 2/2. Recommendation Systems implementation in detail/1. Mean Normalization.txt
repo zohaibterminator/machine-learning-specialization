@@ -1,0 +1,13 @@
+When building a recommender system with numbers such as movie ratings, the algorithm runs much faster and better when you first mean normalize the data.
+
+Before we understand how to mean normalize the data, we will add another user into the dataset we have worked on, called Eve. Since, Eve is a new user and has not given any ratings for any movies, the algorithm will predict that Eve will give 0 ratings to all the movies. Since, we have no data or example of a rating Eve has given, we can't predict the rating for Eve. Mean normalization can also help in this scenario, lets see how.
+
+To mean normalize the data, we will first calculate the average rating of each movie, meaning we will take every rating given by a user to a movie and calculate an average rating for that movie. Thenwe will store those values in a vector called μ, because the vector contains mean ratings for all the movies. Then, we will subtract each mean rating of a movie, from the actual ratings given by the users to that movie. Suppose 2 user has given 3.5 and 4.5 rating to a movie. The mean is calculated as 4. We will subtract 4 from the ratings of each user, so the final ratings will be -0.5 and 0.5 respectively.
+
+We will add another step. When predicting the rating for movie i given by user j, we will add the average rating we calculated for that movie to that function. So, the final function for predicting the rating will become:
+
+y^(i, j) = w^(j) . x^(i) + b^(j) + μ^(i)
+
+By using this formula, when calculating the movie rating for a new user, the algorithm will no longer assign 0 to that movie, but it will instead assign the average rating given by the users to that movie.
+
+In this example, we normalized the rows, but some people normalize the column instead of the row. It can be done if you are adding a new movie, and decide to predict the ratings for it, but why would show a new movie that no one has rated to a user? So, we would just stick to mean normalizing the rows.

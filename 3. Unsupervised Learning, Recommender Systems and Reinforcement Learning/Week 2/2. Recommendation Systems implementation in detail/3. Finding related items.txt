@@ -1,0 +1,17 @@
+If you search for a book on a website, the website gives you a list of books that are similar to the books, or if you go to a movie website and search for a movie there, the website shows you movies that are similar to the movie you searched for. So how do websites show you items that are similar to the item you searched for, it turns out, Collaborative filtering gives you a nice way to find related items.
+
+Even though, in the example we have been looking at for collaborative filtering, we calculated features for how much a movie is a romance movie and how much movie is an action movie, in practice, these learned features are hard to interpret.
+
+But to find the items that are similar to the item with feature vector x^(i), you just need to find the item 'k' with feature vector x^(k), that is similar to x^(i). And to find out which feature vectors are similar, we just find the "distance" between them using the sum of squared difference of the x^(i) with all other feature vectors:
+
+sum(x_l^(k) - x_l^(i))
+
+You will then find the 5 or 10 feature vectors with the smallest distance, and show them to the user.
+
+For all the good that Collaborative filtering algorithm do, it also has it's limitations. It suffers from the cold start problem:
+
+* If a new item enters the catalog or a new movie is added, how will you rank it with respect to other movies if very few users have reviewed it.
+
+* How can we show something reasonable to the users who have rated few items? We have used mean normalization to combat this issue a bit, but there are other ways we can solve this issue in a better way.
+
+Another limitation of collaborative filtering is that it doesn't give you a natural way to use side information about items or users, like the genre of the movie or the demographic of the users or user's expressed preferences, etc.
