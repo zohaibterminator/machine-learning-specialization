@@ -1,0 +1,13 @@
+Deep learning is a good way to implement content-based filtering algoritm. This is the way most of the state-of-the art CBF models are implemented today.
+
+We will create two seperate NNs for calculating V_u and V_m. The NN that will calculate V_u, will be named as user network, and the NN that will calculate V_m, will be named as movie network. Now let's suppose a hypothetical architecture for both the NNs. Let's say the user network has 2 hidden layers and 1 output layer. The neurons in hidden layers are 128 and 64, respectively, and the nuerons in the output layer are 32. For the movie network, the number of hidden and output layers are the same. The number of neurons in the hidden layers will be 256 and 128, the output layer will have 32. Notice that the number of neurons of the hidden layer of both the networks can be different, but the number of neurons in the output layer will be the same.
+
+When the NNs calculate the V_u and V_m, we will then perform a dot product of the two, and optionally we can pass the output through a sigmoid function to give us the probability of y^(i,j) being 1, i.e. whether or not the user will like the item.
+
+The cost function of both the NNs are the same, which is similar to the cost function of collaborative filtering
+
+J(V_m, V_u) = sum(V_u^(j).V_u^(i) - y^(i,j))^2 + NN regularization term
+
+We can also use CBF to find items similar to each other, just like collaborative filtering. Consider the vectors V_u^(j) and V_m^(i), both of length 32 that describe user and movie features x_u^(j) and x_m^(i) respectively. If you want to find movies similar to V_m^(j), then just find other vectors V_m^(k) that have the smallest distance with V_m^(j). This can be precomputed, meaning, you can run the algorithm in advance to prepare a list of similar movies for every movie, which you can instantly show to the user when they want to be recommended a similar movie.
+
+In practice, developers spend a lot of time carefully designing some new features to feed into the CBF algorithm, so it can be worth your time designing some new features. The one con of this algorithm is that it can be computationally expensive to run. So lets see how we can modify the algorithm to work on large catalogs of items.
