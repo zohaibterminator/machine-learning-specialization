@@ -1,0 +1,12 @@
+In collaborative filtering, we recommended items to the user based on the ratings of users who gave similar ratings to you.
+
+In content-based filtering, however, we recommend items based on features of users and items to find a good match. It needs some features of users, and some features of items, to find which items are best fit for which users. Content based filtering will still have data of users ratings, which means we will still keep track of which users has given ratings (through r matrix to keep track of which user has given ratings to which items and matrix y to keep track of actual ratings)
+
+The examples of features of a user we can use is Age, 1 hot encoded Gender and country features, movies watched, average rating given per genre, etc. We can also use features of movies like the year of release, genre/genres, reviews, average rating, etc.
+
+For developing algorithm for content-based filtering, we will make some changes to the original function. We will drop the b^(j), it turns out it doesn't effect the performance of the algorithm at all, and we will replace w^(j) with v_u^(j), which is a vector computed from the features of the users or x_u^(j), and replace x^(j) with v_m^(j), which is also a vector which is computed from the features of movies or x_m^(i).
+
+To give an example of the values the vectors will hold, lets say for the vector v_u for user j, it will hold values 4.9, 0.1, etc, that tells you much the user likes romance movies, action movies and so on. And the vector v_m for movie i holds values like 4.5, 0.2, etc, that tells you how much the movie is romance movie, an action movie and so on. The dot product of these two vectors will give you an idea of how much the user j will like the movie i.
+
+The challenge then is, given a feature vector X_u^(j) how can we compute the user's preference in the form of V_u? Similarly for the movies, given a feature vector X_m^(i), how can we compute V_m?
+One other thing, X_m^(i) and X_u^(j) can be different in sizes, but V_m and V_u should be the same size, because for computing a dot product between vectors, the size of the vectors should be the same.
