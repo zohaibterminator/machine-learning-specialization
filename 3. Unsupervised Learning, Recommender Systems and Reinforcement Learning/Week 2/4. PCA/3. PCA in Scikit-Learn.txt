@@ -1,0 +1,14 @@
+Firstly, you will perform the feature scaling, so that the features take on comparable values.
+
+Then you will use the function "fit" to obtain 2 or 3 axes to represent the data. The PCA algorithm can give you more than 3 axes, but it will be harder to visualize. The "fit" function provided by the library with the PCA algorithm automatically applies mean normalization. After running the algorithm, you will get the 2 or 3 principle axes.
+
+Then it is recommended that you examine the principle components to see how they explain the variance in the data. This can be done through "explain_variance_ratio" function.
+
+Lastly, you will project the data onto the new axis through "transform" function, and then plot the data.
+
+Here are some applications that you might consider:
+1. Visualization (as discussed earlier)
+
+2. Data compression: This application was used many years ago when data transmission was slow or maybe you wanted to save some space on your database. So you would use this algorithm to compress the data to either store it or transmit it accross. But with modern technology, PCA is no longer used for this purpose.
+
+3. Speed up the training of supervised learning model: It used to work for older generation of models like SVM, where you would reduce the dimensionality of your dataset, which reduces the training time. But for modern algorithms like the ones used for deep learning, this is not useful. It is more common to take the high-dimensional dataset and feed it into your neural network.
