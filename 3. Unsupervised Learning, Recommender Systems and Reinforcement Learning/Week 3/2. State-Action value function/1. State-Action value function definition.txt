@@ -1,0 +1,19 @@
+The State-Action value function is typically denoted with Q, which si the function of the state you might be in and what action you might take while being in that state. So Q(s, a) will give a number of the return you get if you start at state 's', and take the action 'a' once, and taking the action 'a' once, you behave optimally after that, meaning you will take whatever actions that will result in the highest possible return after that. First question you might have is, how do you know what is the optimal behavior? And if we knew the optimal behavior already, why do we need to compute Q(s, a)? And, we have to acknowledge, that it is a bit of a circular definition but rest assured when we will look at other applications of RL, we will find a way to compute Q(s, a) even if we dont have the optimal policy.
+
+Lets take an example policy that we saw earlier that is a pretty good policy for our Mars rover example, go left from state 2, 3 and 4, and go right from state 5. It turns out, that this is actually the optimal policy for our application when the discount rate γ is 0.5. So, Q(s, a) will be equal to the total return if you start from state 's', and then take action 'a' , and then behave optimally after that, meaning take actions according to this policy. Lets look at Q(s, a) for a few examples.
+
+Lets say you start at state 2, and go right. So, if we go right from state 2 to state 3, and then behave optimally, we would then always go left till we reach state 1. So, Q(s, a), or the return from state 2 after going right will be:
+
+State     2     3           2           1
+Q(s, a) = 0 + 0*(0.5) + 0*(0.5)^2 + 100*(0.5)^3
+Total   = 12.5
+
+This passes no judgement on whether going right is a good idea or not. It's actually not a good idea to go right from state 2, but it just faithfully reports out the return if you take action 'a' and then behave optimally after that. The return reported by Q(2, left) will be:
+
+State     2     1
+Q(s, a) = 0 + 100*(0.5)
+Total   = 50
+
+If you carry out this procedure for different states and different actions you will get the Q(s, a) for all the states and all the actions. Since the State-Action value function is always denoted by Q, it is referred to as the Q-function.
+
+Once you compute the Q-function, it will give you a way to pick actions as well. The best possible return from state 's' is the largest value of Q(s, a), maximizing over 'a' (max_a Q(s, a)). FOr example if you look at the state 4, if you go left, you get 12.5 return. If you go right, you get 10. The best possible return will be Q(4, left), which is 12.5. If you want to get the best possible value Q(4, left), you have to take the action left, to get the best return from state 4. So the best action of state 's' is action 'a', which maximizes Q(s, a). So, this will give you an idea why calculating Q(s, a) is an important part of the reinforcement learning algorithm that will build later. Namely if you have a way of computing Q(s, a). For every state and for every action then when you're in some state 's' all you have to do is look at the different actions 'a', and pick the action 'a' that maximizes Q(s, a). In RL literature, Q-function is also written as Q*, and this function is also sometimes called optimal Q function.

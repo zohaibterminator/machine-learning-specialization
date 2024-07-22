@@ -1,0 +1,38 @@
+How do you know which rewards are better or worse then other rewards. The return allows us to capture that.
+
+To understand the concept to help you understand is, would you rather, pick up a 5 dollar bill at your feet, or walk half hour across town to pick up a 10 dollar bill? 10 dollar is worth more than 5 dollars, but you have to walk for half an hour, then it would be more convenient to pick up the 5 dollar bill instead. So the return concept captures that the rewards you can get quicker are maybe more attractive then rewards that takes you a long time to get to.
+
+When we go back to our Mars rover example, you saw that if the rover went left from state 4, you have to go through state 3 and 2, with 0 rewards to get to state 1 to get the reward 100. The return is the sum of these rewards but weighted by a factor, called discount factor. So the discount factor is a number less then 1, lets say 0.9. Using the discount factor the Return equation will look a little bit like this:
+
+Return = 0 + 0*(0.9) + 0*(0.9)^2 + 100*(0.9)^3
+
+So we will take the reward of the robot at state 4 as it, then at action, we will take the reward of the state s' and multiply it with the discount factor. Then after that, we will do the same thing for the remaining states but we will start increasing the power of the discount factor. The total return of the above path turns out to be 0.729, and after multiplying it with 100, we get 72.9. The more general equation of the return is:
+
+Return = R_1*γ^0 + R_2*γ^1 + R_3*γ^2 ... (until we get to the reward state) Where γ = Discount rate.
+
+What the discount rate will do is add a sense of impatientness in the RL algorithm, so that each time we enter a new state, we will get less and less of the total reward of the state. A common choice of the discount factor is a number very close to 1, like 0.9 or 0.99 or 0.999, etc. We will use a discount factor 0.5 in our examples. So it will add a big penalty on the reward of each new state the mars rover goes into. Acc to the new discount factor, the return will be:
+
+Return = (0 + 0*(0.5) + 0*(0.5)^2 + 100*(0.5)^3) * 100
+Return = 12.5
+
+In financial applications, the discount factor also has a very natural interpretation as the interest rate or the time value of money. So, if you have a dollar today, it could be worth a little bit more then the dollar you will have in the future.
+
+As the rewards depends on the state, it depends on the actions you take, so the return also depends on the actions you take. If we take our previous route of always going left starting from state 4, we will get the return of 12.5. Turns out, if we start at state 3, the return will be doubled and become 25. So it's discounted less. Similarly, if started at state 2, the return will be 50, and if we start at state 1, the return will be 100. For state 5, you will get the return of 6.25, and if we are starting at stage 6, we will just get the return of 40, as it is the terminal state. If we always go right, the returns at each state would be would be:
+
+state 1: 100
+state 2: 2.5
+state 3: 5
+state 4: 10
+state 5: 20
+state 6: 40
+
+As you can see, the return of states is lower if we always go to the right as compared to always going left. But we don't have to always go one way only. If we are starting from state 2-4, we can always go left, but if we are starting at state 5, since the reward on the right is closer, we can go right. So this is another way of choosing the actions to take based on the state you are in. Due to this approach, our returns will be:
+
+state 1: 100
+state 2: 50
+state 3: 25
+state 4: 12.5
+state 5: 20
+state 6: 40
+
+This will have an interesting effect when you will have a system with negative rewards.

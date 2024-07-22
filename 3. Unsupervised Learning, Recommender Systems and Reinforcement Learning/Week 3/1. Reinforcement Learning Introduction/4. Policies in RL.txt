@@ -1,0 +1,3 @@
+We will formalize how the RL algorithm picks actions we will also learn what are policies in RL.
+
+There are many different ways we can take actions in a RL problem. For example, we can always go for the nearer reward. We can also just go for the larger reward (for e.g. always go left in the Mars rover problem), we can also go towards the smaller reward, or, we can go towards the larger reward, unless we are one step away from the smaller reward, which is the approach we discussed at the end of the last section. In RL, our goal is to come up with a function policy, π, whose job is to take any state 's', and map it to some action 'a' that it wants us to take as to maximize the return.
