@@ -1,0 +1,17 @@
+In some applications, when you take an action, the outcome is not always reliable. For example, if you command your Mars rover to go left, maybe the surface is too rocky or too slippery, so it slips and goes in the other direction. In practice, many robots don't almways manage to do exactly what you tell them to do due to some reasons mentioned above. So theres a generalization of the RL framework that models random or stochastic enviroments, we will talk about how these RL problems work.
+
+Slightly modifying our Mars rover example, lets say the rover starts at state 4, and we tell the rover to go left, and 90% of the time it successfully goes to the next state, but 10% of the time it slips and goes in the opposite direction, i.e., right. So there is a 90% chance it goes to state 3, and 10% of the chance it goes to state 5.
+
+Lets say you have the following policy, you always go left in state 2, 3, and 4, and always go right in state 5. But if start in state 4 you try to follow the policy, the sequence of states you will visit will be random.
+
+We had written the return as the sum of discounted rewards, but when the RL problem is stochastic, there isn't one sequence of rewards you see for sure, instead you see different sequences of different rewards. So, in this type of problem instead of maximizing the return, because that is a random number, but instead we will be maximizing the average value of the return. By average, we mean what if we tried out a policy 1000s, 100000s or even millions of times and take the average return values of those tries, thats what we will call the average return or Expected return. This just means we want to maximize what we expect to get from following this policy. The expected return can be written as:
+
+Expected Return = E[R(s_1) + γ*R(s_2), γ^2*R(s_3) + ....]
+
+Where E just means expected value of. So, the job of RL algorithm is to maximize the average or the expected sum of discounted rewards.
+
+Due to this change, the Bellman equation for stochastic Markov Decision Problem becomes:
+
+Q(s, a) = R(s) + γ * E[max_a' Q(s', a')]
+
+Because the action 'a' you take in state 's', the next state s' you get to is random.

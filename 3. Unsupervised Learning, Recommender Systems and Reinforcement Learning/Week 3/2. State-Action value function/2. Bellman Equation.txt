@@ -1,0 +1,25 @@
+In reinforcement learning, there's a key equation called the Bellman equation that will help us to compute the state action value function.
+
+This is the definition of Q(s, a) = Return if you
+                                    * start in state 's'
+                                    * take action 'a' (once)
+                                    * then behave optimally after that
+
+Before taking a look at Bellman equation, lets look at the notations we will use:
+
+s: current state    R(s): reward of current state
+a: current action   s': state you get to after taking action 'a'
+a': action that you take in state s'
+
+So, the Bellman equation is:
+
+Q(s, a) = R(s) + γ * max_a'(Q(s', a'))
+
+If s is the terminal state, then Bellman equation becomes:
+Q(s, a) = R(s)
+
+To understand the Bellman equation, lets see what the definition of Q(s, a) tells us, and how it connects to Bellman equation. Firstly, the definition says "start in state 's'", this is represented as R(s) in the Bellman equation, the reward you get for starting from state 's', then the next 2 statements is represented in the form of "γ * max_a'(Q(s', a'))", because, if you take action 'a', you will get to state s', then you will take the action a', that will take you towards the optimal solution. This equation can be unpacked for better understanding:
+
+Q(s, a) = R(1) + γ*(R(2) + γ*R(3) + γ^2*R(4) ... until terminal state)
+
+The R(s) in the Bellman equation, is often called immediate reward in RL.

@@ -5,14 +5,14 @@ Lets take an example policy that we saw earlier that is a pretty good policy for
 Lets say you start at state 2, and go right. So, if we go right from state 2 to state 3, and then behave optimally, we would then always go left till we reach state 1. So, Q(s, a), or the return from state 2 after going right will be:
 
 State     2     3           2           1
-Q(s, a) = 0 + 0*(0.5) + 0*(0.5)^2 + 100*(0.5)^3
-Total   = 12.5
+Return = 0 + 0*(0.5) + 0*(0.5)^2 + 100*(0.5)^3
+Total  = 12.5
 
 This passes no judgement on whether going right is a good idea or not. It's actually not a good idea to go right from state 2, but it just faithfully reports out the return if you take action 'a' and then behave optimally after that. The return reported by Q(2, left) will be:
 
 State     2     1
-Q(s, a) = 0 + 100*(0.5)
-Total   = 50
+Return = 0 + 100*(0.5)
+Total  = 50
 
 If you carry out this procedure for different states and different actions you will get the Q(s, a) for all the states and all the actions. Since the State-Action value function is always denoted by Q, it is referred to as the Q-function.
 

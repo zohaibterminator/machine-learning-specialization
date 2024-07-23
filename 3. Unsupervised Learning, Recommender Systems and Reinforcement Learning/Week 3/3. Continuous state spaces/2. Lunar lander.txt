@@ -1,0 +1,26 @@
+The lunar lander lets you land a simulated vehicle on the moon. It's like a fun little video game that has been used by a lot of RL researchers.
+
+In this game, you are in command of a lunar lander that is approaching the moon at a very fast pace, your job is to fire thrusters at the right time to make it land safely on the landing pad. There are 4 actions you can perform:
+
+1. You can do nothing.
+2. Fire the left thruster to push the lunar lander to the right.
+3. Fire the right thruster to push the lunar lander to the left.
+4. Fire the main thruster.
+
+The state of the lunar lander includes it's position in terms of x and y co-ordinates, it's velocity in x and y directions, it's angle meaning how far tilted to the left or right it is, it's angular velocity theta dot, and since each action makes a lot of difference in whether it lands or not, we will have 2 additional variables l and r, which indicate whether the left and right leg of the lunar lander is landed repectively, so these variables will take on 2 values, 1 or 0.
+
+This is the reward function for the lunar lander:
+
+* Getting to landing pad: 100 - 140 (depending on how much in the center it is)
+* Additional reward for moving towards/away from pad (if it moves away, it gets negative reward, and if it moves closer to the landing pad, it will get a positive reward)
+* Crash: -100
+* Soft landing: +100
+* For either leg grounded: +10
+
+For not wasting too much fuel
+* Fire main engine: -0.3
+* Fire side thruster: -0.03
+
+So, the problem statement of the lunar lander problem is that: Learn a policy π, that given the state s of the lunar lander, pick the action a = π(s) so as to maximize the return.
+
+For lunar lander, we use a fairly large value of γ, i.e., 0.985. We will now develop a neural network to come up with the policy to land the lunar lander.

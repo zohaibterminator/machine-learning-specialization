@@ -1,0 +1,26 @@
+The key idea is to use a neural network to calculate or approximate the state-action value Q(s, a) and that in turn will let us pick good actions.
+
+We will train a neural network on the current state and current action, and we will use it to calculate Q(s, a). In particular for the lunar lander, we will take the state s and actions a, and put them together. The state was the vector of 8 values, and the actions were nothing, left, main, and right, which we will use a one-hot feature encoded vector.
+
+We will take these 12 values, and put it in the neural network with 2 hidden layers with 64 neurons each, and an output layer with 1 neuron, which will output Q(s, a). We will call this output the target value 'y', which we are using the neural network to approximate. So, in whichever state the lunar lander is, the NN will calculate the lunar lander for every action, and which ever of these has the highest value, we will pick that corresponding action 'a'.
+
+So how we will use the NN to predict Q(s, a). Well, we will use the Bellman's equation to create a training set of x and y features, then we will use supervised learning with NN to learn the mappings from x-y, or mappings of state-action pair to Q(s, a). Lets see how we will get the training set for values x and y for training the neural network on.
+
+We're going to use the lunar lander and just try taking different actions in it. If we don't have a good policy yet, we'll take actions randomly, fire the left thruster, fire the, right thruster, fire the main engine, do nothing. By just trying out different things in the lunar lander simulator we'll observe a lot of examples of when we're in some state and we took some action, may be a good action, maybe a terrible action either way. Then we got some reward R(s) for being in that state, and as a result of our action, we got to some new state, s'. You will then do this 10,000 times or more then 10,000 times, and each time you will record your current state 's', the action 'a' you take while being in that state, the reward R(s), and the state you end up in s'. Each of these sets of values, will become training examples, for which you will compute Q(s, a) using Bellman equation for each action, and pick the biggest one to be named as 'y'. Since we dont know how to compute the Q(s', a') part of the Bellman equation, we will just make a random guess for it, which will get better over time.
+
+This is our final learning algorithm:
+* Initialize neural network randomly as guess of Q(s, a)
+* Repeat {
+    * Take actions in the lunar lander. Get (s, a, R(s), s')
+    * Store 10,000 most recent (s, a, R(s), s') tuples (this technique of storing most recent 10,000 examples is also called Replay buffer)
+
+    * Train the neural network:
+        * Create the training set of 10,000 examples using:
+            x = (s, a) and y = R(s) + γ * max-a' Q(s', a')
+            We will guess the value of Q(s', a')
+        * Train a neural network Q_new such that Q_new(s, a) approximates y
+
+    * Set Q = Q_new
+}
+
+This algorithm is sometimes referred to as DQN algorithm, or Deep Q-Network algorithm, because you are using Deep Learning to train a model to learn Q functions. This algorithm as it is will sort of work for the lunar lander, sometimes it will fail and sometimes it will not, but with some refinements it can work much better.
