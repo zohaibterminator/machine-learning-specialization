@@ -1,0 +1,18 @@
+Mini-batches refinement is not only applicable to this RL algorithm, but also to supervised learning algorithms like linear regression or logistic regression. Soft-updates on the other hand will help the RL algorithm converge faster to a good solution.
+
+To understand mini-batches, lets look at supervised learning example of predicting house prices. The cost function of linear regression algorithm was the mean squared error. When we are working with small amounts of data, the algorithm works fine. But when we are dealing with 100,000,000 training examples, or m, in each step of gradient descent has to take the average of 100,000,000 training example's error. This will make the algorithm very slow.
+
+In the mini-batch gradient descent, the idea is to not take the whole 100,000,000 training example, but take a smaller amount of examples m', lets say, equal to 1000, and on every step, instead of using all 100,000,000 examples, we would take a subset of 1000 or m' examples. In the mini-batch gradient descent algorithm, the algorithm may look at a different subset of m' examples, but in another iteration, it may look at another subset of m' examples, and so on. You can take overlapping subsets of m' examples, or you can take completely different subset of m' examples.
+
+Mini-batch compared to the normal GD, may not go towards the global minimum efficiently, and somewhat nosily and unreliably, but it is a much faster algorithm compared to normal GD for large datasets. Mini-batch learning is more commonly applied with Adam than gradient descent.
+
+The mini-batch version of our learning algorithm can be, what if you took the most recent 1000 examples from the replay buffer, and not use the entire 10,000 examples of x = (s, a) and y = R(s) + γ * max_a Q(s', a'). This will make the learning of the algorithm noisey, but it will make it faster.
+
+There is one another step of refinement we can implement in our RL algorithm. In our RL algorithm, we are assigning a new value of Q that we learned through training. This can be a very abrupt change to Q, as the Q_new can be a worse than the previous Q. This means we overwrote our previous Q-function, with a potentially worse Q_new-function. So, soft-updates prevents the Q-function in getting worse through just one unlucky step.
+
+When we assign a new Q-function, we are overwriting the previous parameters of the function w and b, and replace it with w_new and b_new. With soft updates, instead of overwriting the old values of w and b, we do this:
+
+w = (0.01)*w_new + (0.99)*w
+b = (0.01)*b_new + (0.99)*b
+
+Through soft updates, we are basically saying we will take only some part of the new parameters. 0.99 and 0.01 are basically hyperparameters that we can set, and it controls how aggresively you move w to w_new. These numbers are expected to add up to 1, though. 

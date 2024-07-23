@@ -1,0 +1,13 @@
+The learning algorithm that we developed, even while you are still learning how to approximate Q(s, a), you need to take some actions in the lunar lander. The most common way to do this, is the ϵ-greedy policy.
+
+In our learning algorithm, we need to take actions in the lunar lander while learning the Q(s, a), but we haven't made the best estimate of Q(s, a) yet. Lets look at some options on how we can do this:
+
+In some state s,
+
+1. Pick the action 'a', that maximizes Q(s, a). We don't want to take random actions, cause that would be bad, so even if the Q(s, a) is not the best estimate of the Q-function, lets do our best and pick the best action the according to the maximum Q(s, a). This option is okay, but it isn't the best option.
+
+2. With probability 0.95, pick the action 'a' that maximizes Q(s, a), and with probability 0.05, pick an action 'a' randomly.
+
+We may want to pick an action randomly, is because the Q(s, a) is initialized randomly, so what if the learning algorithm thinks that firing the main thruster is never a good idea. What if the parameters of neural networks is initialized so that the Q(s, main) is always very low. So, a neural network trying to maximize Q(s, a), will never pick Q(s, main) because it is always low. This step is called "Exploration" step, because we will try to explore if there is any other idea that we can try so that a NN can learn whether it is a good idea or not. us picking the maximum Q(s, a) 95% of the time, is also called a Greedy step, and in RL literature, it is also called "Exploitation" step. There is also a "Exploitation vs Exploration" tradeoff that is discussed, which refers to how much actions you take randomly or how much actions you take to maximize Q(s, a) The second approach is called ϵ-greedy policy, where ϵ is the probability of picking the action randomly. Here it is 0.05.
+
+Lastly, one of the tricks used in RL is that we start off with a high value of ϵ, so we are initially taking a lot of random actions, and then gradually decrease it, so that you are not taking actions randomly and actually using your improving estimates of Q-function most of the time.

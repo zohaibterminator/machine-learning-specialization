@@ -1,1 +1,3 @@
-With our current NN architecture, we would have to carry out inference 4 times for the 4 actions for our lunar lander
+With our current NN architecture, we would have to carry out inference 4 times for the 4 actions for our lunar lander, to pick the largest value of Q(s, a) with respect to an action. That is very inefficient. It is more efficient, to output all 4 values of Q(s, a) at once.
+
+The updated NN architecture is that it takes in 8 inputs, corresponding to the 8 variables that tells us the state of the lunar lander, and it still has 2 hidden layers, each with 64 neurons, but the output layer now outputs 4 values, which is the Q(s, a) for action nothing, left, main and right. Then we just have to pick the action that gives us the maximum Q(s', a')
